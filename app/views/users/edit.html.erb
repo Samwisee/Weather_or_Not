@@ -1,0 +1,6 @@
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name %>
+  <%= f.input :city_name, as: :location %>
+  <%= f.button :submit %>
+<% end %>
