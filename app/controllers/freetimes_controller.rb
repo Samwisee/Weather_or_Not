@@ -1,14 +1,10 @@
 class FreetimesController < ApplicationController
-    def index
-    end
+  def new
+    @freetime = Freetime.new
+  end
 
-    def show
-    end
+  def create
 
-    def new
-    end
-
-    def create
-    end
+  end
 
 end
