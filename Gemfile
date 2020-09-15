@@ -62,8 +62,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### ADDED ###
-<<<<<<< HEAD
 gem 'simple_form'
-=======
-gem 'simple_form'
->>>>>>> master

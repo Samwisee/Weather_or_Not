@@ -5,14 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-<<<<<<< HEAD
-User.create(email: "email@gmail.com", password: "password");
-p "Seeded!"
-=======
 
 puts "Create user"
 
 User.create(email: "user@gmail.com", password: "password")
 
 puts "User created"
->>>>>>> master
