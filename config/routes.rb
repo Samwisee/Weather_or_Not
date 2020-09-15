@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '/rails/info/routes' => 'routes'
 
   resources :freetimes
+  resources :users
 
 end
