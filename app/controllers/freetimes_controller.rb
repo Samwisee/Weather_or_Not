@@ -6,6 +6,7 @@ class FreetimesController < ApplicationController
   def create
     @freetime = Freetime.new(freetime_params)
     @freetime.user = current_user
+    raise
     if @freetime.save
       redirect_to 
     else

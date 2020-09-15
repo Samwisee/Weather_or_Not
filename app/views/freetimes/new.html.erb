@@ -1,7 +1,24 @@
-<h1>This is the freetimes page</h1>
+<h1>Select your availability</h1>
 
 <%= simple_form_for [@freetime] do |f| %>
-  <%= f.input :start_at %>
-  <%= f.input :end_at %>
+  
+  <%= f.label :Morning %>
+  <%= f.check_box :start_at %>
+  <%= f.input :start_at, label: false, input_html: { value: '6:00 - 9:00' } %>
+
+  <%= f.label :Noon %>
+  <%= check_box_tag(:start_at) %>
+  <%= f.input :start_at, label: false, input_html: { value: '12:00 - 13:00' } %>
+
+  <%= f.label :Night %>
+  <%= check_box_tag(:start_at) %>
+  <%= f.input :start_at, label: false, input_html: { value: '18:00 - 21:00' } %>
+
+  <%= f.label :Weekend %>
+  <%= check_box_tag(:start_at) %>
+  <%= f.input :start_at, label: false, input_html: { value: '9:00 - 22:00' } %>
+
+  <button id="add-field">+ (Addfield)</button>
   <%= f.submit %>
 <% end %>
+
