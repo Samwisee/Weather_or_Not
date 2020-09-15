@@ -1,1 +1,7 @@
 <h1>This is the freetimes page</h1>
+
+<%= simple_form_for [@freetime] do |f| %>
+  <%= f.input :start_at %>
+  <%= f.input :end_at %>
+  <%= f.submit %>
+<% end %>
