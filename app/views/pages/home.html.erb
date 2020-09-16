@@ -1,9 +1,24 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
 <% if user_signed_in? %>
     <% lat = current_user.latitude %>
     <% lon = current_user.longitude %>
     <% data = Weather.call(lat, lon)%>
-    <%= data['timezone']%>
+    <% tomorrow_forcast = data['daily'][0] %>
+    <div>
+        <h1>Hello! <%= current_user.name %></h1>
+        <h2>Tomorrow Forcast in <%= current_user.city_name %> is: </h2>
+        <p>minium temperture is <%= tomorrow_min = (tomorrow_forcast['temp']['min']).round() %> c</p>
+        <p>maximum temperture is <%= tomorrow_max = (tomorrow_forcast['temp']['max']).round() %> c</p>
+        <p>It's <%= tomorrow_weather = tomorrow_forcast['weather'][0]['main']%></p>
+        <p>Based on the average temperture of <%= midium_tem = ((tomorrow_min + tomorrow_max) / 2).round() %> c</p>
+    
+        <% data['hourly'].each do |d|%>
+            <% if d['temp'].round() == midium_tem %>
+                <p><%= "The best time to go out is #{DateTime.strptime(d['dt'].to_s, '%s')} "%></p>
+            <% else %>
+            <p><%= <%= "The best time to go out is #{DateTime.strptime(d['dt'].to_s, '%s')} "%></p>  %></p>
+            <% end %>
+        <% end %>
+    </div>
 <% end %>
+
