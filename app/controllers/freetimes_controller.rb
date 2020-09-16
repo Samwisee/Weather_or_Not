@@ -9,9 +9,7 @@ class FreetimesController < ApplicationController
   end
 
   def create
-    @freetime = Freetime.new(freetime_params)
-    @freetime.user = current_user
-    raise
+    @freetime = Freetime.new(params)
     if @freetime.save
       redirect_to 
     else
@@ -22,7 +20,9 @@ class FreetimesController < ApplicationController
   private
 
   def human_params
-    params.require(:freetime).permit(:start_at, :end_at)
+    params.require(:freetime).permit(:freetime)
   end
+
+  
  
 end

@@ -1,35 +1,37 @@
-<h2>Sign up</h2>
-
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="wizard">
-    <div class="wizard-step"> 
-      <%= f.input :city_name,
+    <div class="wizard-step" id="name">
+      <%= f.input :name,
+                  label: "What's your name?",
                   required: true,
-                  autofocus: true %>
-                  <button type="button" class="wizard-btn">Next</button>
+                  autofocus: true,
+                  placeholder: "name" %>
+      <button type="button" class="wizard-btn"><a href="#city-name">Next</a></button>
     </div>
-    <div class="wizard-step">
+
+    <div class="wizard-step" id="city-name">
+      <%= f.input :city_name,
+                  label: "What city are you located near?",
+                  required: true,
+                  autofocus: true,
+                  placeholder: "location" %>
+      <button type="button" class="wizard-btn"><a href="#sign-up">Next</a></button>
+    </div>
+   
+    <div class="wizard-step" id="sign-up">
       <%= f.input :email,
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :name,
-                  required: true,
-                  autofocus: true %>
-                 
+                  input_html: { autocomplete: "new-password" } %>               
       <%= f.button :submit, "Sign up", class: "wizard-btn" %>
-
     </div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

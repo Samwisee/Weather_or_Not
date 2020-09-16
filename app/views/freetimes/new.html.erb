@@ -1,19 +1,26 @@
-<h1>Select your availability</h1>
+<div class="container">
+  <div class="row">
+    <div class="col d-flex flex-column align-items-center justify-content-center">
+      <h1>Select your availability</h1>
 
-<%= simple_form_for [@freetime] do |f| %>
-  
-  <%= f.label :Morning %>
-  <%= f.check_box :start_at %>
+      <%= simple_form_for [@freetime] do |f| %>
+        
+        <%= f.label :Morning %>
+        <%= f.check_box :start_at %>
 
-  <%= f.label :Noon %>
-  <%= check_box_tag(:start_at) %>
+        <%= f.label :Noon %>
+        <%= f.check_box :start_at %>
 
-  <%= f.label :Night %>
-  <%= check_box_tag(:start_at) %>
+        <%= f.label :Night %>
+        <%= f.check_box :start_at %>
 
-  <%= f.label :Weekend %>
-  <%= check_box_tag(:start_at) %>
+        <%= f.label :Weekend %>
+        <%= f.check_box :start_at %>
 
-  <%= f.submit %>
-<% end %>
+        <%= f.submit %>
 
+      <% end %>
+      
+    </div>
+  </div>
+</div>

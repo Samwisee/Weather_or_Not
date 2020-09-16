@@ -1,9 +1,10 @@
-<h1>Weather or Not</h1>
-<p>Make the most of your hour outside</p>
+<div class="container home d-flex align-items-center justify-content-center">
+  <div class="row">
+    <div class="col text-center">
+      <h1>Weather or Not</h1>
+      <p>Make the most of your hour outside</p>
 
-<% if user_signed_in? %>
-    <% lat = current_user.latitude %>
-    <% lon = current_user.longitude %>
-    <% data = Weather.call(lat, lon)%>
-    <%= data['timezone']%>
-<% end %>
+      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+    </div>
+  </div>
+</div>
