@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_09_14_065516) do
   enable_extension "plpgsql"
 
   create_table "freetimes", force: :cascade do |t|
-    t.string "start_at"
-    t.string "end_at"
+    t.time "start_at"
+    t.time "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

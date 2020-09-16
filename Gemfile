@@ -62,6 +62,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### ADDED ###
-gem 'simple_form'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'
+gem 'bootstrap', '~> 5.0.0.alpha1'
