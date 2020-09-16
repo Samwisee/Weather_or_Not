@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/rails/info/routes' => 'routes'
   get 'devise/registrations/after_signup'
 
-  resources :freetimes
   resources :users
+  resources :freetimes
 
 end
