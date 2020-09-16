@@ -62,6 +62,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### ADDED ###
-gem 'simple_form'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'
+
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
