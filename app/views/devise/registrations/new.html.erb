@@ -24,13 +24,16 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" }%>
+                  input_html: { autocomplete: "email" },
+                  placeholder: "email"%>
       <%= f.input :password,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password" },
+                  placeholder: "password" %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>               
+                  input_html: { autocomplete: "new-password" },
+                  placeholder: "password" %>               
       <%= f.button :submit, "Sign up", class: "wizard-btn" %>
     </div>
   </div>
