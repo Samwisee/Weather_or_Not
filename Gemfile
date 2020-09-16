@@ -63,3 +63,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ### ADDED ###
 gem 'simple_form'
+<<<<<<< HEAD
+=======
+gem 'dotenv-rails', groups: [:development, :test]
+gem 'geocoder'
+>>>>>>> master

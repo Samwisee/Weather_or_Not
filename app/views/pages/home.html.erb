@@ -1,4 +1,9 @@
 <h1>Weather or Not</h1>
 <p>Make the most of your hour outside</p>
 
-
+<% if user_signed_in? %>
+    <% lat = current_user.latitude %>
+    <% lon = current_user.longitude %>
+    <% data = Weather.call(lat, lon)%>
+    <%= data['timezone']%>
+<% end %>

@@ -8,6 +8,7 @@
 
 puts "Create user"
 
-User.create(email: "user@gmail.com", password: "password")
+User.create(email: "melbourne@gmail.com", password: "password", city_name: 'melbourne')
+User.create(email: "taipei@gmail.com", password: "password", city_name: 'taipei')
 
 puts "User created"
