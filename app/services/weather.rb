@@ -1,6 +1,5 @@
 require 'json'
 require 'open-uri'
-require 'pry'
 
 class Weather
     def self.call(lat, lon)
