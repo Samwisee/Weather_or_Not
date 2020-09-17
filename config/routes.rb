@@ -10,5 +10,12 @@ Rails.application.routes.draw do
     resources :freetimes
   end
 
+  require "sidekiq/web"
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  resources :freetimes
+  resources :users
 
 end
