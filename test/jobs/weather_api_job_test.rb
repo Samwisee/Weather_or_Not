@@ -1,3 +1,4 @@
+#TODO test sidekiq
 require 'test_helper'
 
 class WeatherApiJobTest < ActiveJob::TestCase
