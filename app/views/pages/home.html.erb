@@ -1,37 +1,26 @@
 
 
-<% if user_signed_in? %>
-    <% lat = current_user.latitude %>
-    <% lon = current_user.longitude %>
-    <% data = Weather.call(lat, lon)%>
-    <% tomorrow_forcast = data['daily'][0] %>
+<div class="container home d-flex align-items-center justify-content-center">
+  <div class="row">
+    <div class="col text-center">
+    <% if user_signed_in? %>
+    
     <div class="wizard">
         <div class="wizard-step">
             <h1>Hello! <%= current_user.name %></h1>
             <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
         
-            <p><%= tomorrow_weather = tomorrow_forcast['weather'][0]['main']%></p>
-
-            <% standard_temp = 25 %>
-            <% weatherArr = [] %>
-            <% data['hourly'].each do |d| %>
-                <% if Time.now().day + 1 ==  DateTime.strptime(d['dt'].to_s, '%s').day%>
-                    <% weatherArr << [(d['temp'] - standard_temp).abs, DateTime.strptime(d['dt'].to_s, '%s'), d['temp']] %>
-                <% end  %>
-            <% end %>
-            <p>The best time to go out is <%= (weatherArr.sort[0][1].strftime("%I:%M %p")) %> with temperature of <%= weatherArr.sort[0][2].round() %>c</p>
+            <p><%= @forecast.tomorrow.weather%></p>
+  
+            <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c</p>
         </div>
     </div>
-<% end %>
-
-
-<div class="container home d-flex align-items-center justify-content-center">
-  <div class="row">
-    <div class="col text-center">
+    <% else %>
       <h1>Weather or Not</h1>
       <p>Make the most of your hour outside</p>
-
       <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+    <% end %>
+
     </div>
   </div>
 </div>
