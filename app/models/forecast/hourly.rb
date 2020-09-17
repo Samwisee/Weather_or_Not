@@ -1,3 +1,4 @@
+#TODO refactor 
 class Forecast::Hourly
   STANDARD_TEMPERATURE = 25
 
