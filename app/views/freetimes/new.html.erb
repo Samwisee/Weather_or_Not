@@ -1,13 +1,8 @@
-<div class="container home">
-  <div class="row">
-    <div class="col d-flex flex-column align-items-center justify-content-center">
-      <h1>Select your availability</h1>
-      <%=  simple_form_for :freetimes do |f| %>
-        <%= f.input :start_at %>
-        <%= f.input :end_at %>
-        <%= f.check_box :morning %>
-        <%= f.submit %>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+<h1>Select your availability</h1>
+<%=  simple_form_for :freetimes, :url => {:action => "create"} do |f| %>
+  <%= f.input :start_at %>
+  <%= f.input :end_at %>
+  <%= f.submit %>
+<% end %>
+

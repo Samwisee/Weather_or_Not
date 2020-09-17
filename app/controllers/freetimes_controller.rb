@@ -9,7 +9,9 @@ class FreetimesController < ApplicationController
   end
   
   def create
-    @user = User.find(current_user)
+    user_mailer = UserMailer.with(user: User.last)
+    user_mailer.welcome.deliver_now
+    p "Email sent"
   end
 #   def create
 #     @freetime = Freetime.new(params)
@@ -25,7 +27,4 @@ class FreetimesController < ApplicationController
   def human_params
     params.require(:freetimes).permit(:start_at, :end_at)
   end
-
-  
- 
 end
