@@ -64,7 +64,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 ### ADDED ###
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'
+
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'letter_opener', group: :development
 gem 'figaro'
-
