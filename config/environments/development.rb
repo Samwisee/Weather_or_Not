@@ -61,7 +61,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'https://weather-or-no1.herokuapp.com' }
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.perform_deliveries = true
@@ -72,7 +72,7 @@ Rails.application.configure do
     :domain               => 'gmail.com',
     :user_name            => ENV['gmail_username'],
     :password             => ENV['gmail_password'],
-    :authentication       => "plain",
+    :authentication       => :plain,
     :enable_starttls_auto => true
     }
 end
