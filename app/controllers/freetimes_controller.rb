@@ -1,14 +1,30 @@
 class FreetimesController < ApplicationController
-    def index
-    end
+  before_action :authenticate_user!
 
-    def show
-    end
+  def index
+  end
 
-    def new
-    end
+  def new
+    @freetime = Freetime.new
+  end
+  
+  def create
+    @user = current_user
+    UserMailer.welcome(@user).deliver
+    redirect_to root_path
+  end
+#   def create
+#     @freetime = Freetime.new(params)
+#     if @freetime.save
+#       redirect_to 
+#     else
+#       render 'new'
+#     end
+#   end
 
-    def create
-    end
+  private
 
+  def human_params
+    params.require(:freetimes).permit(:start_at, :end_at)
+  end
 end

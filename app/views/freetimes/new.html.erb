@@ -1,0 +1,8 @@
+
+<h1>Select your availability</h1>
+<%=  simple_form_for :freetimes, :url => {:action => "create"} do |f| %>
+  <%= f.input :start_at %>
+  <%= f.input :end_at %>
+  <%= f.submit %>
+<% end %>
+

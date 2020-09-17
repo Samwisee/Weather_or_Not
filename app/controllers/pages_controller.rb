@@ -8,4 +8,5 @@ class PagesController < ApplicationController
     # @forecast = Forecast.new(data)
   end
 
+  
 end
