@@ -10,17 +10,16 @@ class FreetimesController < ApplicationController
 
   def create
     @freetime = Freetime.new(params)
+    raise
     if @freetime.save
-      redirect_to 
-    else
-      render 'new'
+      # redirect_to 
     end
   end
 
   private
 
   def human_params
-    params.require(:freetime).permit(:freetime)
+    params.require(:freetimes).permit(:start_at, :end_at)
   end
 
   

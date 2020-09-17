@@ -2,25 +2,25 @@
   <%= f.error_notification %>
 
   <div class="wizard">
-    <div class="wizard-step" id="name">
+    <div class="wizard-step">
       <%= f.input :name,
                   label: "What's your name?",
                   required: true,
                   autofocus: true,
                   placeholder: "name" %>
-      <button type="button" class="wizard-btn"><a href="#city-name">Next</a></button>
+    <a href="#secondstep" data-turbolinks="false">Next</a>
     </div>
 
-    <div class="wizard-step" id="city-name">
+    <div class="wizard-step" id="secondstep">
       <%= f.input :city_name,
                   label: "What city are you located near?",
                   required: true,
                   autofocus: true,
                   placeholder: "location" %>
-      <button type="button" class="wizard-btn"><a href="#sign-up">Next</a></button>
+      <a href="#finalstep" data-turbolinks="false">Next</a>
     </div>
    
-    <div class="wizard-step" id="sign-up">
+    <div class="wizard-step" id="finalstep">
       <%= f.input :email,
                   required: true,
                   autofocus: true,
@@ -36,5 +36,6 @@
                   placeholder: "password" %>               
       <%= f.button :submit, "Sign up", class: "wizard-btn" %>
     </div>
+
   </div>
 <% end %>
