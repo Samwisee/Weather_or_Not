@@ -7,14 +7,18 @@ class FreetimesController < ApplicationController
   def new
     @freetime = Freetime.new
   end
-
+  
   def create
-    @freetime = Freetime.new(params)
-    raise
-    if @freetime.save
-      # redirect_to 
-    end
+    @user = User.find(current_user)
   end
+#   def create
+#     @freetime = Freetime.new(params)
+#     if @freetime.save
+#       redirect_to 
+#     else
+#       render 'new'
+#     end
+#   end
 
   private
 
