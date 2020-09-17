@@ -7,22 +7,24 @@ class FreetimesController < ApplicationController
   def new
     @freetime = Freetime.new
   end
-
+  
   def create
-    @freetime = Freetime.new(params)
-    if @freetime.save
-      redirect_to 
-    else
-      render 'new'
-    end
+    @user = current_user
+    UserMailer.welcome(@user).deliver
+    redirect_to root_path
   end
+#   def create
+#     @freetime = Freetime.new(params)
+#     if @freetime.save
+#       redirect_to 
+#     else
+#       render 'new'
+#     end
+#   end
 
   private
 
   def human_params
-    params.require(:freetime).permit(:freetime)
+    params.require(:freetimes).permit(:start_at, :end_at)
   end
-
-  
- 
 end
