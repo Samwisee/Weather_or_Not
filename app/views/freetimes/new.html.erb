@@ -1,8 +1,23 @@
+<div class="container form">
+  <div class="row">
+    <div class="col text-center">
+      <h1>Select your availability</h1>
+      <%=  simple_form_for :freetimes, :url => {:action => "create"} do |f| %>
+        <%= f.check_box :morning %><span> Morning (8:00-11:00)</span>
+        <%= f.input :start_at, as: :hidden, input_html: {value: '8:00'} %>
+        <%= f.input :end_at, as: :hidden, input_html: {value: '11:00'} %>
 
-<h1>Select your availability</h1>
-<%=  simple_form_for :freetimes, :url => {:action => "create"} do |f| %>
-  <%= f.input :start_at %>
-  <%= f.input :end_at %>
-  <%= f.submit %>
-<% end %>
+        <%= f.check_box :noon %><span> Noon (11:00-14:00)</span>
+        <%= f.input :start_at, as: :hidden, input_html: {value: '11:00'} %>
+        <%= f.input :end_at, as: :hidden, input_html: {value: '14:00'} %>
+
+        <%= f.check_box :night %><span> Night (14:00 - 17:00)</span>
+        <%= f.input :start_at, as: :hidden, input_html: {value: '14:00'} %>
+        <%= f.input :end_at, as: :hidden, input_html: {value: '17:00'} %>
+
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
 

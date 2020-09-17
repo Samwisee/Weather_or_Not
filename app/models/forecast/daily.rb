@@ -1,7 +1,7 @@
-class Daily
+# class Daily
 
-  def initialize(params = {})
-    @params = params
-  end
+#   def initialize(params = {})
+#     @params = params
+#   end
 
-end
+# end
