@@ -66,5 +66,5 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'letter_opener', group: :development
-
+gem 'figaro'
 

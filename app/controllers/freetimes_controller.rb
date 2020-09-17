@@ -9,9 +9,9 @@ class FreetimesController < ApplicationController
   end
   
   def create
-    user_mailer = UserMailer.with(user: User.last)
-    user_mailer.welcome.deliver_now
-    p "Email sent"
+    @user = current_user
+    UserMailer.welcome(@user).deliver
+    redirect_to root_path
   end
 #   def create
 #     @freetime = Freetime.new(params)
