@@ -1,6 +1,6 @@
-<div class="container d-flex align-items-center" style="height: 100vh">
+<div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
   <div class="row">
-    <div class="col text-center">
+    <div class="col">
       <h1>Select your availability</h1>
       <%=  simple_form_for :freetimes, :url => {:action => "create"} do |f| %>
         <%= f.check_box :morning %><span> Morning (8:00-11:00)</span>

@@ -10,9 +10,9 @@
           <div class="wizard">
               <div class="wizard-step">
                   <h1>Hello! <%= current_user.name %></h1>
-                  <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
+                  <h4>Tomorrow's forecast in <%= current_user.city_name %> </h4>
               
-                  <p><%= tomorrow_weather = tomorrow_forcast['weather'][0]['main']%></p>
+                  <h4><%= tomorrow_weather = tomorrow_forcast['weather'][0]['main']%></h4>
 
                   <% standard_temp = 25 %>
                   <% weatherArr = [] %>
@@ -30,14 +30,24 @@
 </div>
 
 
-<div class="container home d-flex align-items-center justify-content-center">
-  <div class="row">
+<div class="container">
+  <div class="row home d-flex align-items-center justify-content-center">
     <div class="col text-center">
       <h1>Weather or Not</h1>
       <p>Make the most of your hour outside</p>
 
-      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+      <div class="m-auto" id="btn" style="width: 150px"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></div>
     </div>
   </div>
+  <div class="row home d-flex align-items-center justify-content-center">
+    <div class="col">
+      <p>Weather or Not</p>
+    </div>
+    <div class="col border" style="height: 300px">
+      
+    </div>
+    </div>
+  </div>
+  
 </div>
 
