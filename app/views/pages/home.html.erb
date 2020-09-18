@@ -1,38 +1,53 @@
 
-
-<% if user_signed_in? %>
-    <% lat = current_user.latitude %>
-    <% lon = current_user.longitude %>
-    <% data = Weather.call(lat, lon)%>
-    <% tomorrow_forcast = data['daily'][0] %>
-    <div class="wizard">
-        <div class="wizard-step">
-            <h1>Hello! <%= current_user.name %></h1>
-            <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
-        
-            <p><%= tomorrow_weather = tomorrow_forcast['weather'][0]['main']%></p>
-
-            <% standard_temp = 25 %>
-            <% weatherArr = [] %>
-            <% data['hourly'].each do |d| %>
-                <% if Time.now().day + 1 ==  DateTime.strptime(d['dt'].to_s, '%s').day%>
-                    <% weatherArr << [(d['temp'] - standard_temp).abs, DateTime.strptime(d['dt'].to_s, '%s'), d['temp']] %>
-                <% end  %>
-            <% end %>
-            <p>The best time to go out is <%= (weatherArr.sort[0][1].strftime("%I:%M %p")) %> with temperature of <%= weatherArr.sort[0][2].round() %>c</p>
-        </div>
-    </div>
-<% end %>
-
-
 <div class="container home d-flex align-items-center justify-content-center">
   <div class="row">
     <div class="col text-center">
-      <h1>Weather or Not</h1>
-      <p>Make the most of your hour outside</p>
+      <% if user_signed_in? %>
+          <% lat = current_user.latitude %>
+          <% lon = current_user.longitude %>
+          <% data = Weather.call(lat, lon)%>
+          <% tomorrow_forcast = data['daily'][0] %>
+          <div class="wizard">
+              <div class="wizard-step">
+                  <h1>Hello! <%= current_user.name %></h1>
+                  <h4>Tomorrow's forecast in <%= current_user.city_name %> </h4>
+              
+                  <h4><%= tomorrow_weather = tomorrow_forcast['weather'][0]['main']%></h4>
 
-      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+                  <% standard_temp = 25 %>
+                  <% weatherArr = [] %>
+                  <% data['hourly'].each do |d| %>
+                      <% if Time.now().day + 1 ==  DateTime.strptime(d['dt'].to_s, '%s').day%>
+                          <% weatherArr << [(d['temp'] - standard_temp).abs, DateTime.strptime(d['dt'].to_s, '%s'), d['temp']] %>
+                      <% end  %>
+                  <% end %>
+                  <p>The best time to go out is <%= (weatherArr.sort[0][1].strftime("%I:%M %p")) %> with temperature of <%= weatherArr.sort[0][2].round() %>c</p>
+              </div>
+          </div>
+      <% end %>
     </div>
   </div>
+</div>
+
+
+<div class="container">
+  <div class="row home d-flex align-items-center justify-content-center">
+    <div class="col text-center">
+      <h1 style="color: white">Weather or Not</h1>
+      <p style="color: white">Make the most of your hour outside</p>
+
+      <div class="m-auto" id="btn" style="width: 150px"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></div>
+    </div>
+  </div>
+  <div class="row home d-flex align-items-center justify-content-center">
+    <div class="col">
+      <p>Weather or Not</p>
+    </div>
+    <div class="col borde0" style="height: 300px">
+      
+    </div>
+    </div>
+  </div>
+  
 </div>
 
