@@ -1,17 +1,13 @@
 
-
 <div class="container home d-flex align-items-center justify-content-center">
   <div class="row">
     <div class="col text-center">
     <% if user_signed_in? %>
-    
     <div class="wizard">
         <div class="wizard-step">
             <h1>Hello! <%= current_user.name %></h1>
             <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
-        
             <p><%= @forecast.tomorrow.weather%></p>
-  
             <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c</p>
         </div>
     </div>
@@ -20,8 +16,6 @@
       <p>Make the most of your hour outside</p>
       <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
     <% end %>
-
     </div>
   </div>
 </div>
-
