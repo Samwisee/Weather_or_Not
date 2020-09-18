@@ -13,7 +13,7 @@
             <h1>Hello <%= current_user.name %>!</h1>
             <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
         
-            <p><%= @forecast.tomorrow.weather%></p>
+            <h2><%= @forecast.tomorrow.weather%></h2>
   
             <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c</p>
         </div>
