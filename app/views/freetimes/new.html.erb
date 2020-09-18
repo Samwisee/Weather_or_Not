@@ -2,8 +2,9 @@
   <div class="row">
     <div class="col">
       <h1 style="color: white">Select periods for breaks</h1>
-      <%=  simple_form_for Freetime.new do |f| %>
-        <%= f.check_box :period %><span> Morning (8:00-11:00)</span>
+      <%=  simple_form_for Freetime.new,  remote: true do |f| %>
+        <%= f.check_box :active %><span> Morning (8:00-11:00)</span>
+        <%= f.input :period, as: :hidden, input_html: {value: 'morning'} %>
         <%= f.input :start_at, as: :hidden, input_html: {value: '8:00'} %>
         <%= f.input :end_at, as: :hidden, input_html: {value: '11:00'} %>
 
