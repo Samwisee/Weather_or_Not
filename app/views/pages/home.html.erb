@@ -10,7 +10,7 @@
 
     <div class="wizard">
         <div class="wizard-step">
-            <h1>Hello! <%= current_user.name %></h1>
+            <h1>Hello <%= current_user.name %>!</h1>
             <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
         
             <p><%= @forecast.tomorrow.weather%></p>
