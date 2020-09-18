@@ -1,2 +1,32 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+h1, h2, h3, h4, h5, h6, p, a {
+  color: white;
+}
+
+.col a {
+  border: 1.5px solid white;
+  border-radius: 30px;
+  transition: 0.5s ease;
+  min-width: 300px;
+  padding: 5px 30px;
+  text-decoration: none;
+}
+
+.col a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: 0.5s ease;
+}
+
+.wizard a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: 0.5s ease;
+}
+
+.ap-dataset-places {
+  background-color: violet;
+}

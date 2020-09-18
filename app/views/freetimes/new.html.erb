@@ -1,6 +1,6 @@
 <div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
   <div class="row">
-    <div class="col">
+    <div class="col text-center">
       <h1 style="color: white">Select periods for breaks</h1>
       <%=  simple_form_for Freetime.new, remote: true do |f| %>
         <%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %><span> Morning (8:00-11:00)</span>
