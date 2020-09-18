@@ -7,6 +7,7 @@ class WeatherApiJob < ApplicationJob
     # We need to update for all user # for each user
     # user = User.last
     # updated_weather = Weather.call(user.latitude, user.longitude)
+    #TODO: to change the logic to check the API table first before calling the API
     users = User.all
     users.each do |user|
       data =  Weather.call(user.latitude, user.longitude)
