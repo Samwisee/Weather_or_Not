@@ -5,8 +5,8 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.welcome.subject
   #
-  def welcome(user)
-    @user = user
+  def welcome
+    @user = params[:user]
     mail(to: @user.email, subject: 'Weather or Not')
   end
 
@@ -17,7 +17,9 @@ class UserMailer < ApplicationMailer
   #
   def forecast
     @greeting = "Hi"
-
-    mail to: "to@example.org"
+    @user = params[:user]
+    @forecast = params[:forecast]
+    mail(to: @user.email, subject: 'Weather or Not')
+    # mail to: "to@example.org"
   end
 end

@@ -18,4 +18,18 @@ class User < ApplicationRecord
   #   UpdateUserJob.perform_later(self)
   # end
 
+  after_create :send_welcome_email, :send_forecast_email
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
+  end
+
+  def send_forecast_email
+    data =  Weather.call(latitude, longitude)
+    @forecast = Forecast.new(data)
+    UserMailer.with(forecast: @forecast, user: self).forecast.deliver_now
+  end
+
 end

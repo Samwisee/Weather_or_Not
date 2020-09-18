@@ -3,10 +3,6 @@
   <div class="row">
     <div class="col text-center">
     <% if user_signed_in? %>
-    <% lat = current_user.latitude %>
-    <% lon = current_user.longitude %>
-    <% data = Weather.call(lat, lon) %>
-    <% @forecast = Forecast.new(data) %>
     <div class="wizard">
         <div class="wizard-step">
             <h1>Hello! <%= current_user.name %></h1>

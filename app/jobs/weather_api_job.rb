@@ -7,11 +7,15 @@ class WeatherApiJob < ApplicationJob
     # We need to update for all user # for each user
     # user = User.last
     # updated_weather = Weather.call(user.latitude, user.longitude)
-    User.all.each do |user|
-      Weather.call.update(user.latitude, user.longitude)
+    users = User.all
+    users.each do |user|
+      data =  Weather.call(user.latitude, user.longitude)
+      # we need to pass weather information to the email via usermailer.forecast method
+      
+      @forecast = Forecast.new(data)
+      UserMailer.with(forecast: @forecast, user: user).forecast.deliver_now
     end
     
-    puts updated_weather
     puts "Weather has been refreshed"
   end
 end
