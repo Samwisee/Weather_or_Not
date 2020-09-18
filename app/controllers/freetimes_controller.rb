@@ -10,7 +10,7 @@ class FreetimesController < ApplicationController
   
   def create
     @user = current_user
-    UserMailer.welcome(@user).deliver
+    UserMailer.welcome(@user).deliver_now
     redirect_to root_path
   end
 #   def create
