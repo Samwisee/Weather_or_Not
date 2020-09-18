@@ -11,9 +11,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       <% else %>
         <li class="nav-item">
           <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>

@@ -1,7 +1,7 @@
 <div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
   <div class="row">
     <div class="col">
-      <h1>Select your availability</h1>
+      <h1 style="color: white">Select periods for breaks</h1>
       <%=  simple_form_for :freetimes, :url => {:action => "create"} do |f| %>
         <%= f.check_box :morning %><span> Morning (8:00-11:00)</span>
         <%= f.input :start_at, as: :hidden, input_html: {value: '8:00'} %>

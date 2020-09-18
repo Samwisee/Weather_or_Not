@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 body {
-  background: teal;
+  background: linear-gradient(#e66465, #9198e5);
 }
 
 .home {
@@ -8,8 +8,14 @@ body {
 }
 
 #btn a {
-  border: 1px solid white;
+  border: 1.5px solid white;
   border-radius: 30px;
   color: white;
+  transition: background-color 0.5s ease
+}
+
+#btn a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.5s ease;
 }
 
