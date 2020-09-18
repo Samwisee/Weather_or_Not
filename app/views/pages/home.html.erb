@@ -15,7 +15,7 @@
         
             <h2><%= @forecast.tomorrow.weather%></h2>
   
-            <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c</p>
+            <p>The best time to go out is <b><%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %></b> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c</p>
         </div>
     </div>
     <% else %>
