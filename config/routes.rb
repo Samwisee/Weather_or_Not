@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  get 'landingpage/index'
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  devise_scope :user do
+    authenticated :user do
+      root 'home#index', as: :authenticated_root
+    end
+  
+    unauthenticated do
+      root 'home#index', as: :unauthenticated_root
+    end
+  end
   
   get '/rails/info/routes' => 'routes'
   get 'devise/registrations/after_signup'
@@ -9,6 +19,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :freetimes
   end
+
+  
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do

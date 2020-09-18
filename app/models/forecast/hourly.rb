@@ -6,8 +6,8 @@ class Forecast::Hourly
     @params = params
   end
   
-  def time_of_hour
-    Time.at(@params["dt"])
+  def datetime
+    Time.at(@params["dt"]).to_datetime
   end
 
   def temperature
@@ -18,8 +18,18 @@ class Forecast::Hourly
     temperature > STANDARD_TEMPERATURE
   end
 
-  def hour
-    time_of_hour.hour
+  def tomorrow?
+    Time.now().day + 1 ==  DateTime.strptime(@params['dt'].to_s, '%s').day
+  end
+  
+  def to_data
+    [normalized_temperature, datetime, temperature]
+  end
+  
+  private
+  
+  def normalized_temperature
+    (temperature - STANDARD_TEMPERATURE).abs
   end
 
 end
