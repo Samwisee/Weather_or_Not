@@ -7,25 +7,26 @@
                   label: "What's your name?",
                   required: true,
                   autofocus: true,
-                  placeholder: "name" %>
+                  placeholder: "first name is fine :)" %>
     <a href="#secondstep" data-turbolinks="false">Next</a>
     </div>
 
     <div class="wizard-step" id="secondstep">
       <%= f.input :city_name,
-                  label: "What city are you located near?",
+                  label: "Where are you located near?",
                   required: true,
                   autofocus: true,
-                  placeholder: "location" %>
+                  placeholder: "cities are best for us" %>
       <a href="#finalstep" data-turbolinks="false">Next</a>
     </div>
    
     <div class="wizard-step" id="finalstep">
       <%= f.input :email,
+                  label: "What's you email?",
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email" },
-                  placeholder: "email"%>
+                  input_html: { autocomplete: "What's your email?" },
+                  placeholder: "we won't share it"%>
       <%= f.input :password,
                   required: true,
                   input_html: { autocomplete: "new-password" },
