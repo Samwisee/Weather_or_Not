@@ -1,31 +1,42 @@
 
-<div class="container home d-flex align-items-center justify-content-center">
-  <div class="row">
-    <div class="col text-center">
-    <% if user_signed_in? %>
-    <% lat = current_user.latitude%>
-    <% lon = current_user.longitude %>
-    <% data = Weather.call(lat, lon) %>
-    <% @forecast = Forecast.new(data) %>
+<%= render layout: 'rainbackground' do %>
+  <div class="container-fluid home d-flex align-items-center justify-content-center m-0 p-0">
+    <div class="row">
+      <div class="col text-center">
+      <% if user_signed_in? %>
+      <% lat = current_user.latitude%>
+      <% lon = current_user.longitude %>
+      <% data = Weather.call(lat, lon) %>
+      <% @forecast = Forecast.new(data) %>
 
-    <div class="wizard">
+      <div class="wizard">
         <div class="wizard-step">
-            <h1>Hello <%= current_user.name %>!</h1>
-            <h4>Tomorrow's forecast in <%= current_user.city_name %> </h4>
-        
-            <h2><%= @forecast.tomorrow.weather%></h2>
-  
-            <h3>The best time to go out is <b><%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %></b> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>C</h3>
-        </div>
-    </div>
-    <% else %>
-      <h1>Weather or Not</h1>
-      <p>Make the most of your hour outside</p>
-      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-    <% end %>
+          <h1>Hello <%= current_user.name %>!</h1>
+          <h4>Tomorrow's forecast in <%= current_user.city_name %> </h4>
+          - for i in (0 .. 149)
+            i.rain
+          <h2><%= @forecast.tomorrow.weather%></h2>
 
+          <h3>The best time to go out is <b><%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %></b> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>C</h3>
+        </div>
+      </div>
+      <% else %>
+        <div>
+          <h1>Weather or Not</h1>
+          <p>Make the most of your hour outside</p>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+        </div>
+
+
+        <div class="row">
+          <p>Welcome to Weather or Not <br/> a weather service personalized to you!<br/> There's nothing to download,<br/> just sign up for our daily notification, <br/>and we will give you the best hour of weather<br/> accounting for your location and availability.</p>
+        </div>
+      <% end %>
+
+        
+      </div>
     </div>
   </div>
-  
-</div>
+<% end %>
+
 

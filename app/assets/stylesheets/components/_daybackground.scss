@@ -11,7 +11,6 @@
 //   -webkit-box-align: center;
 //           align-items: center;
 //   font-family: Arial, Helvetica, Sans-serif;
-//   position: fixed;
 // }
 
 .background-container {
@@ -63,7 +62,6 @@
 .background-container .layer.sunset {
   background: -webkit-gradient(linear, left bottom, left top, from(orange), to(blue));
   background: linear-gradient(0deg, orange, blue);
-  opacity: 0.5;
 }
 .background-container .layer.sunset > div {
   -webkit-transform: translateY(0%);
@@ -73,59 +71,60 @@
 .background-container .layer.nighttime {
   background: -webkit-gradient(linear, left bottom, left top, from(#04A), to(#000));
   background: linear-gradient(0deg, #04A, #000);
-  opacity: 0;
+  opacity: 1;
 }
 .background-container .layer.nighttime > div {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
-  opacity: 0;
+  opacity: 1;
 }
 .background-container .layer.stars {
-  opacity: 0.1;
+  opacity: 1;
   -webkit-transition: opacity 4s ease, -webkit-transform 4s;
   transition: opacity 4s ease, -webkit-transform 4s;
   transition: opacity 4s ease, transform 4s;
   transition: opacity 4s ease, transform 4s, -webkit-transform 4s;
   -webkit-transform: translateY(-5%);
           transform: translateY(-5%);
+  z-index: 100;
 }
 .background-container .layer.stars > div {
-  -webkit-transition: -webkit-transform 0s;
-  transition: -webkit-transform 0s;
-  transition: transform 0s;
-  transition: transform 0s, -webkit-transform 0s;
-  position: absolute;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
   top: 0;
   left: 0;
-  width: 3px;
-  height: 3px;
-  border-radius: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
   background: white;
   box-shadow: 0 0 2px white;
 }
 .background-container .layer.stars > div:nth-child(1) {
-  -webkit-transform: translateX(269px) translateY(291px) scale(0.4285714286);
-          transform: translateX(269px) translateY(291px) scale(0.4285714286);
+  -webkit-transform: translateX(269px) translateY(291px);
+          transform: translateX(269px) translateY(291px);
   box-shadow: 0 0 2px white;
-  opacity: 0.5;
+  opacity: 0.9;
+  z-index: 100;
 }
 .background-container .layer.stars > div:nth-child(2) {
-  -webkit-transform: translateX(1275px) translateY(276px) scale(0.1428571429);
-          transform: translateX(1275px) translateY(276px) scale(0.1428571429);
+  -webkit-transform: translateX(1275px) translateY(276px);
+          transform: translateX(1275px) translateY(276px);
   box-shadow: 0 0 1px white;
-  opacity: 0.4;
+  opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(3) {
   -webkit-transform: translateX(47px) translateY(204px) scale(0.7142857143);
           transform: translateX(47px) translateY(204px) scale(0.7142857143);
   box-shadow: 0 0 4px white;
-  opacity: 0.4;
+  opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(4) {
   -webkit-transform: translateX(1984px) translateY(316px) scale(1.1428571429);
           transform: translateX(1984px) translateY(316px) scale(1.1428571429);
   box-shadow: 0 0 3px white;
-  opacity: 0.5;
+  opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(5) {
   -webkit-transform: translateX(1388px) translateY(176px) scale(0.2857142857);
@@ -395,13 +394,13 @@
   -webkit-transform: translateX(1814px) translateY(16px) scale(0.2857142857);
           transform: translateX(1814px) translateY(16px) scale(0.2857142857);
   box-shadow: 0 0 2px white;
-  opacity: 0.4;
+  opacity: 1;
 }
 .background-container .layer.stars > div:nth-child(50) {
   -webkit-transform: translateX(1895px) translateY(41px) scale(1);
           transform: translateX(1895px) translateY(41px) scale(1);
   box-shadow: 0 0 3px white;
-  opacity: 0.6;
+  opacity: 1;
 }
 .background-container .note {
   padding: 20px;
@@ -420,12 +419,12 @@
   transition: background 4s ease;
 }
 .background-container.night .layer:nth-child(2) {
-  opacity: 0;
+  opacity: 1;
 }
 .background-container.night .layer:nth-child(2) > div {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
-  opacity: 0;
+  opacity: 1;
 }
 .background-container.night .layer:nth-child(3) {
   opacity: 0.8;
