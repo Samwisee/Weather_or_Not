@@ -1,7 +1,7 @@
 
 <%= render layout: 'rainbackground' do %>
-  <div class="container-fluid home d-flex align-items-center justify-content-center m-0 p-0">
-    <div class="row">
+  <div class="container-fluid home">
+    <div class="row" style="height: 100vh">
       <div class="col text-center">
       <% if user_signed_in? %>
       <% lat = current_user.latitude%>
@@ -21,16 +21,25 @@
         </div>
       </div>
       <% else %>
-        <div>
+      <div class="row" style="height: 100vh">
+        <div class="col m-auto">
           <h1>Weather or Not</h1>
           <p>Make the most of your hour outside</p>
           <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
         </div>
-
-
-        <div class="row">
-          <p>Welcome to Weather or Not <br/> a weather service personalized to you!<br/> There's nothing to download,<br/> just sign up for our daily notification, <br/>and we will give you the best hour of weather<br/> accounting for your location and availability.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-10 offset-md-1 offset-lg-1 col-lg-5 text-left">
+          <p>Welcome to <b>Weather or Not</b> a weather service personalized to you!</p>
+          <p> There's nothing to download, just sign up for our daily notification, and we will send you the best time to go outside based on your location and availability.</p>
         </div>
+        <div class="col-md-10 offset-md-1 col-lg-4 border my-4">
+          <div class="value-prop" style="height: 300px">
+          </div>
+        </div>
+      </div>
+        
+      <footer><p>Built by: Sam, Harris, Eric, & Haiden</p></footer>
       <% end %>
 
         
