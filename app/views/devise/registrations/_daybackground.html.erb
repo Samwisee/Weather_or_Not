@@ -1,7 +1,7 @@
 
 <!-- partial:index.partial.html -->
 <div class="background-container">
-  <div class="layer filter">
+  <div class="layer nighttime">
     <div class="layer stars">
       <div></div>
       <div></div>
@@ -56,11 +56,4 @@
     </div>
     <%= yield %>
   </div>
-  <div class="note" style="z-index: 100">
-    Click to shift between Sunset and Night.
-  </div>
 </div>
-<!-- partial -->
-<script> document.querySelector('.background-container').addEventListener('click', function(){
-  this.className = (this.className === 'background-container night' ? 'background-container sunset' : 'background-container night');
-}) </script>

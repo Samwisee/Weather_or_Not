@@ -18,81 +18,22 @@
   display: -webkit-box;
   display: flex;
   width: 100%;
-  background: white;
 }
 .background-container .layer {
-  z-index: 100;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  -webkit-transition: all 4s ease;
-  transition: all 4s ease;
-  opacity: 1.0;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  line-height: 100%;
-  overflow: hidden;
 }
-.background-container .layer > div.text {
-  display: -webkit-box;
-  display: flex;
-  text-align: center;
-  color: white;
-  font-size: 36px;
-  width: 50%;
-  height: 50%;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-transition: opacity 1.5s linear, -webkit-transform 4s ease;
-  transition: opacity 1.5s linear, -webkit-transform 4s ease;
-  transition: transform 4s ease, opacity 1.5s linear;
-  transition: transform 4s ease, opacity 1.5s linear, -webkit-transform 4s ease;
-}
-.background-container .layer.filter {
-  background: -webkit-gradient(linear, left bottom, left top, from(violet), to(#048));
-  background: linear-gradient(0deg, violet, #048);
-}
-.background-container .layer.sunset {
-  background: -webkit-gradient(linear, left bottom, left top, from(orange), to(blue));
-  background: linear-gradient(0deg, orange, blue);
-}
-.background-container .layer.sunset > div {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-  opacity: 1;
-}
+
 .background-container .layer.nighttime {
   background: -webkit-gradient(linear, left bottom, left top, from(#04A), to(#000));
-  background: linear-gradient(0deg, #04A, #000);
+  background: linear-gradient(5deg, rgb(201, 109, 243), rgb(4, 4, 163), rgb(2, 0, 26));
   opacity: 1;
 }
-.background-container .layer.nighttime > div {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  opacity: 1;
-}
-.background-container .layer.stars {
-  opacity: 1;
-  -webkit-transition: opacity 4s ease, -webkit-transform 4s;
-  transition: opacity 4s ease, -webkit-transform 4s;
-  transition: opacity 4s ease, transform 4s;
-  transition: opacity 4s ease, transform 4s, -webkit-transform 4s;
-  -webkit-transform: translateY(-5%);
-          transform: translateY(-5%);
-  z-index: 100;
-}
+
+
 .background-container .layer.stars > div {
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s;
   top: 0;
   left: 0;
   width: 5px;
@@ -104,7 +45,6 @@
 .background-container .layer.stars > div:nth-child(1) {
   -webkit-transform: translateX(269px) translateY(291px);
           transform: translateX(269px) translateY(291px);
-  box-shadow: 0 0 2px white;
   opacity: 0.9;
   z-index: 100;
 }
@@ -402,22 +342,6 @@
   box-shadow: 0 0 3px white;
   opacity: 1;
 }
-.background-container .note {
-  padding: 20px;
-  border: solid 1px white;
-  width: 33.333%;
-  color: white;
-  text-align: center;
-  font-size: 16px;
-  position: absolute;
-  bottom: 15px;
-  left: 33.333%;
-  background: rgba(125, 95, 85, 0.4);
-  text-shadow: 0 1px 1px black;
-  border-radius: 30px;
-  -webkit-transition: background 4s ease;
-  transition: background 4s ease;
-}
 .background-container.night .layer:nth-child(2) {
   opacity: 1;
 }
@@ -442,7 +366,4 @@
   transition: opacity 8s ease, -webkit-transform 15s ease;
   transition: opacity 8s ease, transform 15s ease;
   transition: opacity 8s ease, transform 15s ease, -webkit-transform 15s ease;
-}
-.background-container.night .note {
-  background: rgba(100, 100, 122, 0.02);
 }
