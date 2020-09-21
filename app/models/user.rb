@@ -2,7 +2,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :freetimes
+  attr_reader :available_hours
+  has_many :freetimes, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -17,6 +18,13 @@ class User < ApplicationRecord
   # def async_update
   #   UpdateUserJob.perform_later(self)
   # end
+  def available_hours
+    if freetime(:active)
+      binding.pry
+      freetimes.map(&:hours).flatten
+    end
+  end
+end
 
   after_create :send_welcome_email, :send_forecast_email
 
