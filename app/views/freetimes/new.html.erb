@@ -3,7 +3,7 @@
     <div class="col text-center">
       <h1 style="color: white">Select periods for breaks</h1>
       <%=  simple_form_for Freetime.new, remote: true do |f| %>
-        <%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %><span> Morning (8:00-11:00)</span>
+        <label><%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %> Morning (8:00-11:00)</label>
         <%= f.input :period, as: :hidden, input_html: {value: 'morning'} %>
         <%= f.input :start_at, as: :hidden, input_html: {value: '8:00'} %>
         <%= f.input :end_at, as: :hidden, input_html: {value: '11:00'} %>
@@ -20,7 +20,7 @@
         <%= f.button :submit, id: "checkbox_submit_noon", class: "d-none" %>
       <% end %>
 
-      <%=  simple_form_for Freetime.new, remote: true do |f| %>
+      <%=  simple_form_for Freetime.new, method: :post, remote: true do |f| %>
         <%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_night`).click();" %><span> Night (14:00-17:00)</span>
         <%= f.input :period, as: :hidden, input_html: {value: 'night'} %>
         <%= f.input :start_at, as: :hidden, input_html: {value: '14:00'} %>
