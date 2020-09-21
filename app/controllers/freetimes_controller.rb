@@ -5,21 +5,11 @@ class FreetimesController < ApplicationController
   end
 
   def new
-    @freetime = Freetime.new
   end
   
   def create
-    @freetime = Freetime.find_by(user: current_user, period: "morning")
-    if @freetime
-      @freetime.update(freetime_params)
-    else
-      @freetime = Freetime.new(freetime_params)
-      @freetime.user = current_user
-      if @freetime.save
-      else
-        render 'new'
-      end
-    end
+    @freetime = Freetime.find_or_initialize_by(user: current_user, period: params.dig(:freetime, :period))
+    @freetime.update!(freetime_params)
   end
   
   def send_mail_and_redirect

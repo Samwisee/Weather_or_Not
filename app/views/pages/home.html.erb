@@ -9,10 +9,6 @@
         
             <p><%= @forecast.tomorrow_weather%>, <%= @forecast.tomorrow_weather_description %> <%= image_tag @forecast.tomorrow_weather_icon %></p>
   
-            <%# <%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %>
-            <%# with temperature of <% %> 
-
-
             <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c, and it's feel like <%= @forecast.best_tomorrow_hourly.feels_like_temperature.round %>c</p>
         </div>
     </div>
@@ -21,9 +17,6 @@
       <p>Make the most of your hour outside</p>
       <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
     <% end %>
-
     </div>
   </div>
-  
 </div>
-
