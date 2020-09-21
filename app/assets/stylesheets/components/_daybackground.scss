@@ -17,13 +17,14 @@
   z-index: 1;
   display: -webkit-box;
   display: flex;
-  width: 100%;
+  width: 100vw;
+
 }
 .background-container .layer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
 }
 
 .background-container .layer.nighttime {
@@ -43,38 +44,38 @@
   box-shadow: 0 0 2px white;
 }
 .background-container .layer.stars > div:nth-child(1) {
-  -webkit-transform: translateX(269px) translateY(291px);
-          transform: translateX(269px) translateY(291px);
+  -webkit-transform: translateX(69px) translateY(91px);
+          transform: translateX(69px) translateY(91px);
   opacity: 0.9;
   z-index: 100;
 }
 .background-container .layer.stars > div:nth-child(2) {
-  -webkit-transform: translateX(1275px) translateY(276px);
-          transform: translateX(1275px) translateY(276px);
+  -webkit-transform: translateX(1275px) translateY(76px);
+          transform: translateX(1275px) translateY(76px);
   box-shadow: 0 0 1px white;
   opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(3) {
-  -webkit-transform: translateX(47px) translateY(204px) scale(0.7142857143);
-          transform: translateX(47px) translateY(204px) scale(0.7142857143);
+  -webkit-transform: translateX(47px) translateY(104px) scale(0.7142857143);
+          transform: translateX(47px) translateY(104px) scale(0.7142857143);
   box-shadow: 0 0 4px white;
   opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(4) {
-  -webkit-transform: translateX(1984px) translateY(316px) scale(1.1428571429);
-          transform: translateX(1984px) translateY(316px) scale(1.1428571429);
+  -webkit-transform: translateX(1984px) translateY(216px) scale(1.1428571429);
+          transform: translateX(1984px) translateY(216px) scale(1.1428571429);
   box-shadow: 0 0 3px white;
   opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(5) {
-  -webkit-transform: translateX(1388px) translateY(176px) scale(0.2857142857);
-          transform: translateX(1388px) translateY(176px) scale(0.2857142857);
+  -webkit-transform: translateX(1388px) translateY(76px) scale(0.2857142857);
+          transform: translateX(1388px) translateY(76px) scale(0.2857142857);
   box-shadow: 0 0 3px white;
   opacity: 0.7;
 }
 .background-container .layer.stars > div:nth-child(6) {
-  -webkit-transform: translateX(572px) translateY(77px) scale(0.1428571429);
-          transform: translateX(572px) translateY(77px) scale(0.1428571429);
+  -webkit-transform: translateX(572px) translateY(7px) scale(0.1428571429);
+          transform: translateX(572px) translateY(7px) scale(0.1428571429);
   box-shadow: 0 0 3px white;
   opacity: 0.4;
 }
@@ -85,8 +86,8 @@
   opacity: 0.5;
 }
 .background-container .layer.stars > div:nth-child(8) {
-  -webkit-transform: translateX(1439px) translateY(97px) scale(1.2857142857);
-          transform: translateX(1439px) translateY(97px) scale(1.2857142857);
+  -webkit-transform: translateX(1439px) translateY(7px) scale(1.2857142857);
+          transform: translateX(1439px) translateY(7px) scale(1.2857142857);
   box-shadow: 0 0 4px white;
   opacity: 0.6;
 }
@@ -357,13 +358,4 @@
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
   opacity: 1;
-}
-.background-container.night .layer.stars {
-  opacity: 1;
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-  -webkit-transition: opacity 8s ease, -webkit-transform 15s ease;
-  transition: opacity 8s ease, -webkit-transform 15s ease;
-  transition: opacity 8s ease, transform 15s ease;
-  transition: opacity 8s ease, transform 15s ease, -webkit-transform 15s ease;
 }
