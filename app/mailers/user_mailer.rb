@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.user_mailer.welcome.subject
-  #
+
   def welcome
     @user = params[:user]
     mail(to: @user.email, subject: 'Weather or Not')
