@@ -18,7 +18,6 @@ class User < ApplicationRecord
   # def async_update
   #   UpdateUserJob.perform_later(self)
   # end
-<<<<<<< HEAD
   def available_hours
     if freetime(:active)
       binding.pry
@@ -26,7 +25,6 @@ class User < ApplicationRecord
     end
   end
 end
-=======
 
   after_create :send_welcome_email, :send_forecast_email
 
@@ -43,4 +41,3 @@ end
   end
 
 end
->>>>>>> master
