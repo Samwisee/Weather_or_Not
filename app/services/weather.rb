@@ -8,7 +8,7 @@ class Weather
         # if valid_json?(forecast_data)
         #     forecast = JSON.parse(forecast_data)
         #     forecast_date = Date.strptime(forecast["current"]["dt"].to_s, '%s')
-        #     hours_ago = - (forecast_date.to_time - DateTime.now) / 1.hours
+        #     hours_ago = - (forecast_date.to_time - DateTime.current) / 1.hours
         #     if hours_ago < 48
         #         return forecast
         #     else

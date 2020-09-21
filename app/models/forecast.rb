@@ -1,5 +1,8 @@
+require_relative '../models/user.rb'
+
 class Forecast
   attr_reader :timezone
+
   def initialize(params = {})
     @params = params
   end
@@ -7,12 +10,13 @@ class Forecast
   # Use this method in hourly.rb
   def timezone
     @params = JSON.parse(@params) if (@params.is_a? String) 
-    @params['timezone_offset'] / 3600
+    offset = (@params['timezone_offset'] / 3600)
+    offset.positive? ? "+#{offset}" : offset.to_s
   end
 
   def hourlies
     @params = JSON.parse(@params) if (@params.is_a? String) 
-    @params["hourly"].map { |hourdata| Forecast::Hourly.new(hourdata) }
+    @params["hourly"].map { |hourdata| Forecast::Hourly.new(hourdata.merge(timezone: timezone)) }
   end
 
   def dailies
@@ -33,16 +37,13 @@ class Forecast
   def tomorrow_weather_icon
     dailies.first.weather_icon
   end
-
-
-  def tomorrow_hourlies
+ 
+  def tomorrow_hourlies_for
     hourlies.select(&:tomorrow?)
-    potato
-
   end
 
   def best_tomorrow_hourly
-    tomorrow_hourlies.sort_by do |hourly|
+    tomorrow_hourlies_for.sort_by do |hourly|
       hourly.to_data[0]
     end.first
   end

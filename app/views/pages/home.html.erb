@@ -2,10 +2,6 @@
   <div class="row">
     <div class="col text-center">
     <% if user_signed_in? %>
-    <% lat = current_user.latitude%>
-    <% lon = current_user.longitude %>
-    <% data = Weather.call(lat, lon) %>
-    <% @forecast = Forecast.new(data) %>
     <div class="wizard">
         <div class="wizard-step">
             <h1>Hello! <%= current_user.name %></h1>
@@ -13,6 +9,10 @@
         
             <p><%= @forecast.tomorrow_weather%>, <%= @forecast.tomorrow_weather_description %> <%= image_tag @forecast.tomorrow_weather_icon %></p>
   
+            <%# <%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %>
+            <%# with temperature of <% %> 
+
+
             <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c, and it's feel like <%= @forecast.best_tomorrow_hourly.feels_like_temperature.round %>c</p>
         </div>
     </div>

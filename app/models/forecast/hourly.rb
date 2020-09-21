@@ -9,7 +9,8 @@ class Forecast::Hourly
   
   
   def datetime
-    Time.at(@params["dt"]).to_datetime
+    Time.at(@params["dt"]).to_datetime.new_offset(timezone)
+
   end
 
   def temperature
@@ -20,10 +21,19 @@ class Forecast::Hourly
     @params["feels_like"]
   end
 
+  def timezone
+    @params[:timezone]
+  end
+
   def tomorrow?
-    # DateTime.now.day + 1 ==  (DateTime.strptime(@params['dt'].to_s, '%s')).day
+    #  @user = User.find(id: 1)
+    #   lat = @user.latitude
+    #   lon = @user.longitude
+    #   data = Weather.call(lat, lon)
+    #   @forecast = Forecast.new(data)
+    DateTime.current.new_offset(timezone).day + 1 ==  Time.at(@params['dt']).to_datetime.new_offset(timezone).day
     # TODO: Use timezone from forecast.rb
-    DateTime.now.day + 1 ==  ((DateTime.strptime(@params['dt'].to_s, '%s')) + 8.hour).day
+    # Time.current.day + 1 ==  ((DateTime.strptime(@params['dt'].to_s, '%s')) + @forecast.timezone.hour).day
   end
   
   def to_data
