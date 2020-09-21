@@ -1,5 +1,6 @@
 class Freetime < ApplicationRecord
-  attr_accessor :freetime_checkbox
-  
+
   belongs_to :user
+
+  validates :period, uniqueness: true
 end

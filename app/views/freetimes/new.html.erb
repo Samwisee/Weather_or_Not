@@ -2,21 +2,34 @@
   <div class="row">
     <div class="col">
       <h1 style="color: white">Select periods for breaks</h1>
-      <%=  simple_form_for :freetimes, :url => {:action => "create"} do |f| %>
-        <%= f.check_box :morning %><span> Morning (8:00-11:00)</span>
+      <%=  simple_form_for Freetime.new, remote: true do |f| %>
+        <%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %><span> Morning (8:00-11:00)</span>
+        <%= f.input :period, as: :hidden, input_html: {value: 'morning'} %>
         <%= f.input :start_at, as: :hidden, input_html: {value: '8:00'} %>
         <%= f.input :end_at, as: :hidden, input_html: {value: '11:00'} %>
 
-        <%= f.check_box :noon %><span> Noon (11:00-14:00)</span>
+        <%= f.button :submit, id: "checkbox_submit_morning", class: "d-none" %>
+      <% end %>
+
+      <%=  simple_form_for Freetime.new, remote: true do |f| %>
+        <%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_noon`).click();" %><span> Noon (11:00-14:00)</span>
+        <%= f.input :period, as: :hidden, input_html: {value: 'noon'} %>
         <%= f.input :start_at, as: :hidden, input_html: {value: '11:00'} %>
         <%= f.input :end_at, as: :hidden, input_html: {value: '14:00'} %>
 
-        <%= f.check_box :night %><span> Night (14:00 - 17:00)</span>
+        <%= f.button :submit, id: "checkbox_submit_noon", class: "d-none" %>
+      <% end %>
+
+      <%=  simple_form_for Freetime.new, remote: true do |f| %>
+        <%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_night`).click();" %><span> Night (14:00-17:00)</span>
+        <%= f.input :period, as: :hidden, input_html: {value: 'night'} %>
         <%= f.input :start_at, as: :hidden, input_html: {value: '14:00'} %>
         <%= f.input :end_at, as: :hidden, input_html: {value: '17:00'} %>
 
-        <%= f.submit %>
+        <%= f.button :submit, id: "checkbox_submit_night", class: "d-none" %>
       <% end %>
+
+      <%= link_to "Submit", send_mail_and_redirect_path %> 
     </div>
   </div>
 </div>

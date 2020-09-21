@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :freetimes
   end
 
-  
+  get '/send_mail_and_redirect', to: 'freetimes#send_mail_and_redirect' 
 
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
