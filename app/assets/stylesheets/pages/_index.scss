@@ -2,7 +2,7 @@
 @import "home";
 
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, p, a, input, span, label {
   color: white;
 }
 
@@ -15,7 +15,9 @@ p {
   line-height: 60px;
 }
 
-
+label {
+  
+}
 
 .col a {
   border: 1.5px solid white;
@@ -25,7 +27,7 @@ p {
   text-decoration: none;
   margin: auto;
   width: calc(150px + 1.8vw);
-  font-size:calc(14px + 1.5vw);
+  font-size: calc(14px + 1.5vw);
 }
 
 .col a:hover {
@@ -44,13 +46,57 @@ p {
   background-color: violet;
 }
 
-// $bg-color: blue;
+.login {
+  background: linear-gradient(5deg, #2441e6, #020a5f);
+  padding: 0;
+  margin: 0;
+  width: 100% !important;
+  height: 100vh;
+}
 
-// $g: transparent;
-// $steps: 10;
-// @for $i from 1 to $steps {
-//   $g: append($g, fade-out($bg-color, 1 / $i) percentage($i / $steps), comma);
-//   $g: append($g, fade-out($bg-color, 1 / $i) percentage(($i + 0.6) / $steps), comma);
-// }
-// $g: append($g, $bg-color);
-// background: linear-gradient(to bottom, $g);
+input.btn {
+  border: 1.5px solid white;
+  border-radius: 30px;
+  color: white;
+  transition: background-color 0.5s ease;
+  width: 200px;
+}
+
+input.btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.5s ease;
+}
+
+.signin-links a {
+  color: rgb(185, 185, 185);
+  transition: color 0.5s ease;
+}
+
+.signin-links a:hover {
+  color: white;
+  transition: color 0.5s ease;
+  text-decoration: none;
+}
+
+a.signup-next:hover {
+  background-color: transparent;
+}
+
+.signup {
+  padding: 0;
+}
+
+.freetimes {
+  background: linear-gradient(5deg, #2441e6, #020a5f);
+  height: 100vh;
+  padding: 0;
+  margin: auto;
+}
+
+.edit-user {
+    background: linear-gradient(5deg, #2441e6, #020a5f);
+    height: 100%;
+    padding: 0;
+    margin: 50px;
+}

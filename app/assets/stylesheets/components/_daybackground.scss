@@ -1,18 +1,3 @@
-// html, body {
-//   height: 300vh;
-//   width: 100%;
-//   margin: 0;
-//   padding: 0;
-//   background: #eee;
-//   display: -webkit-box;
-//   display: flex;
-//   -webkit-box-pack: center;
-//           justify-content: center;
-//   -webkit-box-align: center;
-//           align-items: center;
-//   font-family: Arial, Helvetica, Sans-serif;
-// }
-
 .background-container {
   z-index: 1;
   display: -webkit-box;
@@ -25,6 +10,7 @@
   top: 0;
   left: 0;
   width: 100vw;
+  overflow: hidden;
 }
 
 .background-container .layer.nighttime {
@@ -41,35 +27,36 @@
   height: 5px;
   border-radius: 50%;
   background: white;
-  box-shadow: 0 0 2px white;
+  box-shadow: 1px 1px 9px white;
+  border: 1px solid white;
+  z-index: 100;
 }
 .background-container .layer.stars > div:nth-child(1) {
   -webkit-transform: translateX(69px) translateY(91px);
           transform: translateX(69px) translateY(91px);
   opacity: 0.9;
-  z-index: 100;
 }
 .background-container .layer.stars > div:nth-child(2) {
-  -webkit-transform: translateX(1275px) translateY(76px);
-          transform: translateX(1275px) translateY(76px);
+  -webkit-transform: translateX(275px) translateY(76px);
+          transform: translateX(275px) translateY(76px);
   box-shadow: 0 0 1px white;
   opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(3) {
-  -webkit-transform: translateX(47px) translateY(104px) scale(0.7142857143);
-          transform: translateX(47px) translateY(104px) scale(0.7142857143);
+  -webkit-transform: translateX(47px) translateY(704px) scale(0.7142857143);
+          transform: translateX(47px) translateY(704px) scale(0.7142857143);
   box-shadow: 0 0 4px white;
   opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(4) {
-  -webkit-transform: translateX(1984px) translateY(216px) scale(1.1428571429);
-          transform: translateX(1984px) translateY(216px) scale(1.1428571429);
+  -webkit-transform: translateX(984px) translateY(800px) scale(1.1428571429);
+          transform: translateX(984px) translateY(800px) scale(1.1428571429);
   box-shadow: 0 0 3px white;
-  opacity: 0.9;
+  opacity: 0.2;
 }
 .background-container .layer.stars > div:nth-child(5) {
-  -webkit-transform: translateX(1388px) translateY(76px) scale(0.2857142857);
-          transform: translateX(1388px) translateY(76px) scale(0.2857142857);
+  -webkit-transform: translateX(388px) translateY(76px) scale(0.2857142857);
+          transform: translateX(388px) translateY(76px) scale(0.2857142857);
   box-shadow: 0 0 3px white;
   opacity: 0.7;
 }
@@ -80,26 +67,26 @@
   opacity: 0.4;
 }
 .background-container .layer.stars > div:nth-child(7) {
-  -webkit-transform: translateX(1557px) translateY(71px) scale(0.8571428571);
-          transform: translateX(1557px) translateY(71px) scale(0.8571428571);
+  -webkit-transform: translateX(557px) translateY(71px) scale(0.8571428571);
+          transform: translateX(557px) translateY(71px) scale(0.8571428571);
   box-shadow: 0 0 1px white;
   opacity: 0.5;
 }
 .background-container .layer.stars > div:nth-child(8) {
-  -webkit-transform: translateX(1439px) translateY(7px) scale(1.2857142857);
-          transform: translateX(1439px) translateY(7px) scale(1.2857142857);
+  -webkit-transform: translateX(439px) translateY(7px) scale(1.2857142857);
+          transform: translateX(439px) translateY(7px) scale(1.2857142857);
   box-shadow: 0 0 4px white;
   opacity: 0.6;
 }
 .background-container .layer.stars > div:nth-child(9) {
-  -webkit-transform: translateX(1857px) translateY(23px) scale(0.1428571429);
-          transform: translateX(1857px) translateY(23px) scale(0.1428571429);
+  -webkit-transform: translateX(857px) translateY(23px) scale(0.1428571429);
+          transform: translateX(857px) translateY(23px) scale(0.1428571429);
   box-shadow: 0 0 2px white;
   opacity: 0.6;
 }
 .background-container .layer.stars > div:nth-child(10) {
-  -webkit-transform: translateX(2186px) translateY(302px) scale(0.2857142857);
-          transform: translateX(2186px) translateY(302px) scale(0.2857142857);
+  -webkit-transform: translateX(186px) translateY(302px) scale(0.2857142857);
+          transform: translateX(186px) translateY(302px) scale(0.2857142857);
   box-shadow: 0 0 3px white;
   opacity: 0.5;
 }
@@ -110,10 +97,10 @@
   opacity: 0.7;
 }
 .background-container .layer.stars > div:nth-child(12) {
-  -webkit-transform: translateX(1079px) translateY(143px) scale(0.1428571429);
-          transform: translateX(1079px) translateY(143px) scale(0.1428571429);
+  -webkit-transform: translateX(379px) translateY(143px) scale(0.1428571429);
+          transform: translateX(379px) translateY(143px) scale(0.1428571429);
   box-shadow: 0 0 1px white;
-  opacity: 0.1;
+  opacity: 0.5;
 }
 .background-container .layer.stars > div:nth-child(13) {
   -webkit-transform: translateX(366px) translateY(197px) scale(0.7142857143);
@@ -128,8 +115,8 @@
   opacity: 0.1;
 }
 .background-container .layer.stars > div:nth-child(15) {
-  -webkit-transform: translateX(1270px) translateY(98px) scale(1.2857142857);
-          transform: translateX(1270px) translateY(98px) scale(1.2857142857);
+  -webkit-transform: translateX(270px) translateY(98px) scale(1.2857142857);
+          transform: translateX(270px) translateY(98px) scale(1.2857142857);
   box-shadow: 0 0 3px white;
   opacity: 0.8;
 }
@@ -140,10 +127,10 @@
   opacity: 0.4;
 }
 .background-container .layer.stars > div:nth-child(17) {
-  -webkit-transform: translateX(1842px) translateY(329px) scale(1.2857142857);
-          transform: translateX(1842px) translateY(329px) scale(1.2857142857);
+  -webkit-transform: translateX(842px) translateY(329px) scale(1.2857142857);
+          transform: translateX(842px) translateY(329px) scale(1.2857142857);
   box-shadow: 0 0 3px white;
-  opacity: 0.2;
+  opacity: 0.8;
 }
 .background-container .layer.stars > div:nth-child(18) {
   -webkit-transform: translateX(914px) translateY(241px) scale(0.2857142857);
@@ -158,8 +145,8 @@
   opacity: 0.7;
 }
 .background-container .layer.stars > div:nth-child(20) {
-  -webkit-transform: translateX(1426px) translateY(86px) scale(0.7142857143);
-          transform: translateX(1426px) translateY(86px) scale(0.7142857143);
+  -webkit-transform: translateX(426px) translateY(86px) scale(0.7142857143);
+          transform: translateX(426px) translateY(86px) scale(0.7142857143);
   box-shadow: 0 0 3px white;
   opacity: 0.8;
 }
@@ -170,8 +157,8 @@
   opacity: 1;
 }
 .background-container .layer.stars > div:nth-child(22) {
-  -webkit-transform: translateX(1164px) translateY(375px) scale(1.2857142857);
-          transform: translateX(1164px) translateY(375px) scale(1.2857142857);
+  -webkit-transform: translateX(164px) translateY(375px) scale(1.2857142857);
+          transform: translateX(164px) translateY(375px) scale(1.2857142857);
   box-shadow: 0 0 1px white;
   opacity: 0.8;
 }
@@ -179,17 +166,17 @@
   -webkit-transform: translateX(520px) translateY(104px) scale(0.4285714286);
           transform: translateX(520px) translateY(104px) scale(0.4285714286);
   box-shadow: 0 0 1px white;
-  opacity: 1;
+  opacity: 0.3;
 }
 .background-container .layer.stars > div:nth-child(24) {
-  -webkit-transform: translateX(2072px) translateY(1px) scale(1.2857142857);
-          transform: translateX(2072px) translateY(1px) scale(1.2857142857);
+  -webkit-transform: translateX(172px) translateY(1px) scale(1.2857142857);
+          transform: translateX(172px) translateY(1px) scale(1.2857142857);
   box-shadow: 0 0 3px white;
   opacity: 0.6;
 }
 .background-container .layer.stars > div:nth-child(25) {
-  -webkit-transform: translateX(1951px) translateY(156px) scale(0.2857142857);
-          transform: translateX(1951px) translateY(156px) scale(0.2857142857);
+  -webkit-transform: translateX(951px) translateY(156px) scale(0.2857142857);
+          transform: translateX(951px) translateY(156px) scale(0.2857142857);
   box-shadow: 0 0 3px white;
   opacity: 0.6;
 }
@@ -200,8 +187,8 @@
   opacity: 0.3;
 }
 .background-container .layer.stars > div:nth-child(27) {
-  -webkit-transform: translateX(1784px) translateY(80px) scale(0.1428571429);
-          transform: translateX(1784px) translateY(80px) scale(0.1428571429);
+  -webkit-transform: translateX(784px) translateY(80px) scale(0.1428571429);
+          transform: translateX(784px) translateY(80px) scale(0.1428571429);
   box-shadow: 0 0 3px white;
   opacity: 0.5;
 }
@@ -218,8 +205,8 @@
   opacity: 0.7;
 }
 .background-container .layer.stars > div:nth-child(30) {
-  -webkit-transform: translateX(1471px) translateY(64px) scale(1.4285714286);
-          transform: translateX(1471px) translateY(64px) scale(1.4285714286);
+  -webkit-transform: translateX(471px) translateY(64px) scale(1.4285714286);
+          transform: translateX(471px) translateY(64px) scale(1.4285714286);
   box-shadow: 0 0 3px white;
   opacity: 0.3;
 }
@@ -239,17 +226,17 @@
   -webkit-transform: translateX(341px) translateY(245px) scale(0.7142857143);
           transform: translateX(341px) translateY(245px) scale(0.7142857143);
   box-shadow: 0 0 1px white;
-  opacity: 0.3;
+  opacity: 0.7;
 }
 .background-container .layer.stars > div:nth-child(34) {
-  -webkit-transform: translateX(1181px) translateY(52px) scale(1);
-          transform: translateX(1181px) translateY(52px) scale(1);
+  -webkit-transform: translateX(810px) translateY(52px) scale(1);
+          transform: translateX(810px) translateY(52px) scale(1);
   box-shadow: 0 0 2px white;
   opacity: 0.3;
 }
 .background-container .layer.stars > div:nth-child(35) {
-  -webkit-transform: translateX(2160px) translateY(400px) scale(0.5714285714);
-          transform: translateX(2160px) translateY(400px) scale(0.5714285714);
+  -webkit-transform: translateX(960px) translateY(400px) scale(0.5714285714);
+          transform: translateX(960px) translateY(400px) scale(0.5714285714);
   box-shadow: 0 0 2px white;
   opacity: 0.6;
 }
@@ -257,11 +244,11 @@
   -webkit-transform: translateX(317px) translateY(315px) scale(0.4285714286);
           transform: translateX(317px) translateY(315px) scale(0.4285714286);
   box-shadow: 0 0 3px white;
-  opacity: 0.1;
+  opacity: 0.71;
 }
 .background-container .layer.stars > div:nth-child(37) {
-  -webkit-transform: translateX(1865px) translateY(151px) scale(1.1428571429);
-          transform: translateX(1865px) translateY(151px) scale(1.1428571429);
+  -webkit-transform: translateX(865px) translateY(151px) scale(1.1428571429);
+          transform: translateX(865px) translateY(151px) scale(1.1428571429);
   box-shadow: 0 0 4px white;
   opacity: 0.6;
 }
@@ -269,11 +256,11 @@
   -webkit-transform: translateX(353px) translateY(53px) scale(0.5714285714);
           transform: translateX(353px) translateY(53px) scale(0.5714285714);
   box-shadow: 0 0 4px white;
-  opacity: 1;
+  opacity: 0.8;
 }
 .background-container .layer.stars > div:nth-child(39) {
-  -webkit-transform: translateX(2072px) translateY(92px) scale(1);
-          transform: translateX(2072px) translateY(92px) scale(1);
+  -webkit-transform: translateX(1072px) translateY(92px) scale(1);
+          transform: translateX(1072px) translateY(92px) scale(1);
   box-shadow: 0 0 2px white;
   opacity: 0.5;
 }
@@ -281,7 +268,7 @@
   -webkit-transform: translateX(335px) translateY(58px) scale(0.1428571429);
           transform: translateX(335px) translateY(58px) scale(0.1428571429);
   box-shadow: 0 0 3px white;
-  opacity: 0.3;
+  opacity: 1;
 }
 .background-container .layer.stars > div:nth-child(41) {
   -webkit-transform: translateX(204px) translateY(98px) scale(1);
@@ -293,17 +280,17 @@
   -webkit-transform: translateX(473px) translateY(389px) scale(0.4285714286);
           transform: translateX(473px) translateY(389px) scale(0.4285714286);
   box-shadow: 0 0 2px white;
-  opacity: 0.1;
+  opacity: 0.4;
 }
 .background-container .layer.stars > div:nth-child(43) {
-  -webkit-transform: translateX(2184px) translateY(118px) scale(0.8571428571);
-          transform: translateX(2184px) translateY(118px) scale(0.8571428571);
+  -webkit-transform: translateX(1184px) translateY(118px) scale(0.8571428571);
+          transform: translateX(1184px) translateY(118px) scale(0.8571428571);
   box-shadow: 0 0 1px white;
   opacity: 0.5;
 }
 .background-container .layer.stars > div:nth-child(44) {
-  -webkit-transform: translateX(1470px) translateY(333px) scale(1.1428571429);
-          transform: translateX(1470px) translateY(333px) scale(1.1428571429);
+  -webkit-transform: translateX(470px) translateY(333px) scale(1.1428571429);
+          transform: translateX(470px) translateY(333px) scale(1.1428571429);
   box-shadow: 0 0 2px white;
   opacity: 0.6;
 }
@@ -314,10 +301,10 @@
   opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(46) {
-  -webkit-transform: translateX(299px) translateY(231px) scale(0.8571428571);
-          transform: translateX(299px) translateY(231px) scale(0.8571428571);
+  -webkit-transform: translateX(299px) translateY(770px) scale(0.8571428571);
+          transform: translateX(299px) translateY(770px) scale(0.8571428571);
   box-shadow: 0 0 3px white;
-  opacity: 0.1;
+  opacity: 0.2;
 }
 .background-container .layer.stars > div:nth-child(47) {
   -webkit-transform: translateX(581px) translateY(269px) scale(0.7142857143);
@@ -326,36 +313,23 @@
   opacity: 1;
 }
 .background-container .layer.stars > div:nth-child(48) {
-  -webkit-transform: translateX(2158px) translateY(18px) scale(0.8571428571);
-          transform: translateX(2158px) translateY(18px) scale(0.8571428571);
+  -webkit-transform: translateX(858px) translateY(18px) scale(0.8571428571);
+          transform: translateX(858px) translateY(18px) scale(0.8571428571);
   box-shadow: 0 0 1px white;
   opacity: 0.9;
 }
 .background-container .layer.stars > div:nth-child(49) {
-  -webkit-transform: translateX(1814px) translateY(16px) scale(0.2857142857);
-          transform: translateX(1814px) translateY(16px) scale(0.2857142857);
+  -webkit-transform: translateX(814px) translateY(16px) scale(0.2857142857);
+          transform: translateX(814px) translateY(16px) scale(0.2857142857);
   box-shadow: 0 0 2px white;
-  opacity: 1;
+  opacity: 0.5;
 }
 .background-container .layer.stars > div:nth-child(50) {
-  -webkit-transform: translateX(1895px) translateY(41px) scale(1);
-          transform: translateX(1895px) translateY(41px) scale(1);
+  -webkit-transform: translateX(895px) translateY(41px) scale(1);
+          transform: translateX(895px) translateY(41px) scale(1);
   box-shadow: 0 0 3px white;
-  opacity: 1;
-}
-.background-container.night .layer:nth-child(2) {
-  opacity: 1;
-}
-.background-container.night .layer:nth-child(2) > div {
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  opacity: 1;
-}
-.background-container.night .layer:nth-child(3) {
   opacity: 0.8;
 }
-.background-container.night .layer:nth-child(3) > div {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-  opacity: 1;
-}
+
+
+

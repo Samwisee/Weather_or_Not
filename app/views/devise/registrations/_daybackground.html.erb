@@ -2,7 +2,8 @@
 <!-- partial:index.partial.html -->
 <div class="background-container">
   <div class="layer nighttime">
-    <div class="layer stars">
+    <div style="z-index: 100"><%= yield %></div>
+    <div class="layer stars" style="height: 100%">
       <div></div>
       <div></div>
       <div></div>
@@ -54,6 +55,5 @@
       <div></div>
       <div></div>
     </div>
-    <%= yield %>
   </div>
 </div>
