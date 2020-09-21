@@ -24,7 +24,6 @@ class User < ApplicationRecord
       freetimes.map(&:hours).flatten
     end
   end
-end
 
   after_create :send_welcome_email, :send_forecast_email
 
