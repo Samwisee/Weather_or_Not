@@ -3,19 +3,12 @@
   <div class="row">
     <div class="col text-center">
     <% if user_signed_in? %>
-    <% lat = current_user.latitude%>
-    <% lon = current_user.longitude %>
-    <% data = Weather.call(lat, lon) %>
-    <% @forecast = Forecast.new(data) %>
-
     <div class="wizard">
         <div class="wizard-step">
-            <h1>Hello <%= current_user.name %>!</h1>
-            <h4>Tomorrow's forecast in <%= current_user.city_name %> </h4>
-        
-            <h2><%= @forecast.tomorrow.weather%></h2>
-  
-            <h3>The best time to go out is <b><%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %></b> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c</h3>
+            <h1>Hello! <%= current_user.name %></h1>
+            <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
+            <p><%= @forecast.tomorrow.weather%></p>
+            <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c</p>
         </div>
     </div>
     <% else %>
@@ -23,9 +16,6 @@
       <p>Make the most of your hour outside</p>
       <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
     <% end %>
-
     </div>
   </div>
-  
 </div>
-

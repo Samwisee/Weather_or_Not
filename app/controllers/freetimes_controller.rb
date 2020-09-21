@@ -14,7 +14,7 @@ class FreetimesController < ApplicationController
   
   def send_mail_and_redirect
     redirect_to root_path
-    UserMailer.welcome(current_user).deliver_now
+    # UserMailer.welcome(current_user).deliver_now
   end
 
   private
