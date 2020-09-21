@@ -1,4 +1,17 @@
-<head>
-</head>
-<body>
-</body>
+
+
+<% @user = User.last %>
+<% lat = @user.latitude%>
+<% lon = @user.longitude %>
+<% data = Weather.call(lat, lon) %>
+<% @forecast = Forecast.new(data) %>
+<div style="background-image: linear-gradient(#e66465, #9198e5); padding: 10px">
+  <h1 style="color: white">Weather or Not</h1>
+
+  <h2 style="color: white">Hello <%= @user.name %>!</h2>
+  <h3 style="color: white">Tomorrow's forecast in <%= @user.city_name %> </h3>
+
+  <h2 style="color: white"><%= @forecast.tomorrow.weather%></h2>
+
+  <h2 style="color: white">The best time to go out is <b><%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %></b> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>C</h2>
+</div>
