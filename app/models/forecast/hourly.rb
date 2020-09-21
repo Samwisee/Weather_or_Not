@@ -1,10 +1,12 @@
-#TODO refactor 
+require_relative '../forecast.rb'
 class Forecast::Hourly
   STANDARD_TEMPERATURE = 25
 
   def initialize(params = {})
     @params = params
+    
   end
+  
   
   def datetime
     Time.at(@params["dt"]).to_datetime
@@ -14,12 +16,14 @@ class Forecast::Hourly
     @params["temp"]
   end
 
-  def warm?
-    temperature > STANDARD_TEMPERATURE
+  def feels_like_temperature
+    @params["feels_like"]
   end
 
   def tomorrow?
-    Time.now().day + 1 ==  DateTime.strptime(@params['dt'].to_s, '%s').day
+    # DateTime.now.day + 1 ==  (DateTime.strptime(@params['dt'].to_s, '%s')).day
+    # TODO: Use timezone from forecast.rb
+    DateTime.now.day + 1 ==  ((DateTime.strptime(@params['dt'].to_s, '%s')) + 8.hour).day
   end
   
   def to_data

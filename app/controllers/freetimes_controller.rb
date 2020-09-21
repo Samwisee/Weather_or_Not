@@ -9,7 +9,15 @@ class FreetimesController < ApplicationController
   end
   
   def create
-    @user = current_user
+    # @freetime = Freetime.new(human_params)
+    # @user = current_user
+    # @freetime.id = @user
+    # if @freetime.save
+    #   redirect_to root_path
+    # else
+    #   render 'new'
+    # end
+     @user = current_user
     UserMailer.welcome(@user).deliver_now
     redirect_to root_path
   end
