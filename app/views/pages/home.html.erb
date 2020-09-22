@@ -9,7 +9,7 @@
         
             <p><%= @forecast.tomorrow_weather%>, <%= @forecast.tomorrow_weather_description %> <%= image_tag @forecast.tomorrow_weather_icon %></p>
   
-            <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c, and it's feel like <%= @forecast.best_tomorrow_hourly.feels_like_temperature.round %>c</p>
+            <p>The best time to go out is <%= @forecast.best_tomorrow_hourly(current_user).datetime %> with temperature of <%= @forecast.best_tomorrow_hourly(current_user).temperature.round %>c, and it's feel like <%= @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>c</p>
         </div>
     </div>
     <% else %>

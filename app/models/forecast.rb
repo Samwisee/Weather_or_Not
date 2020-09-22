@@ -42,10 +42,18 @@ class Forecast
     hourlies.select(&:tomorrow?)
   end
 
-  def best_tomorrow_hourly
-    tomorrow_hourlies_for.sort_by do |hourly|
+  def best_tomorrow_hourly(user)
+    method(user).sort_by do |hourly|
       hourly.to_data[0]
     end.first
+  end
+
+  def method(user)
+    user_available_hours = user.available_hours
+    filter_user_available_hours = user_available_hours.collect do |free_hour|
+      tomorrow_hourlies_for[free_hour]
+    end
+    filter_user_available_hours
   end
 
 end

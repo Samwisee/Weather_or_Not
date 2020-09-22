@@ -19,10 +19,9 @@ class User < ApplicationRecord
   #   UpdateUserJob.perform_later(self)
   # end
   def available_hours
-    if freetime(:active)
-      binding.pry
-      freetimes.map(&:hours).flatten
-    end
+    freehours = freetimes.where(active: true).map(&:hours).flatten
+    freehours.pop
+    return freehours
   end
 
   after_create :send_welcome_email, :send_forecast_email
