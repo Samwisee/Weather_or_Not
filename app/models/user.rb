@@ -20,7 +20,6 @@ class User < ApplicationRecord
   # end
   def available_hours
     if freetime(:active)
-      binding.pry
       freetimes.map(&:hours).flatten
     end
   end

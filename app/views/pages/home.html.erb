@@ -1,22 +1,53 @@
-<div class="container home d-flex align-items-center justify-content-center">
-  <div class="row">
-    <div class="col text-center">
-    <% if user_signed_in? %>
-    <div class="wizard">
+
+<%= render layout: 'rainbackground' do %>
+  <div class="container-fluid home">
+    <div class="row" style="height: 100vh">
+      <div class="col text-center">
+      <% if user_signed_in? %>
+      <% lat = current_user.latitude%>
+      <% lon = current_user.longitude %>
+      <% data = Weather.call(lat, lon) %>
+      <% @forecast = Forecast.new(data) %>
+      <div style="display: none"> - for i in (0 .. 149)
+            i.rain</div>
+
+      <div class="wizard">
         <div class="wizard-step">
-            <h1>Hello! <%= current_user.name %></h1>
-            <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
-        
-            <p><%= @forecast.tomorrow_weather%>, <%= @forecast.tomorrow_weather_description %> <%= image_tag @forecast.tomorrow_weather_icon %></p>
-  
-            <p>The best time to go out is <%= @forecast.best_tomorrow_hourly.datetime %> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>c, and it's feel like <%= @forecast.best_tomorrow_hourly.feels_like_temperature.round %>c</p>
+          <h1>Hello <%= current_user.name %>!</h1>
+          <h4>Tomorrow's forecast in <%= current_user.city_name %> </h4>
+         
+          <h2><%= @forecast.tomorrow_weather%></h2>
+
+          <h3>The best time to go out is <b><%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %></b> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>C</h3>
         </div>
-    </div>
-    <% else %>
-      <h1>Weather or Not</h1>
-      <p>Make the most of your hour outside</p>
-      <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-    <% end %>
+      </div>
+      <% else %>
+      <div class="row" style="height: 100vh">
+        <div class="col m-auto">
+          <h1>Weather or Not</h1>
+          <p>Make the most of your hour outside</p>
+          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 offset-md-1 offset-lg-1 col-lg-5 text-center">
+          <p>Welcome to <b>Weather or Not</b> a weather service personalized to you!</p>
+          <br/>
+          <p style="font-size: calc(10px + 1.2vw)"> There's nothing to download, just sign up for our daily notification, and we will send you the best time to go outside based on your location and availability.</p>
+        </div>
+        <div class="col-md-10 offset-md-1 col-lg-4 border my-4">
+          <div class="value-prop" style="height: 300px">
+          </div>
+        </div>
+      </div>
+        
+      <% end %>
+
+        
+      <footer><p>Built by: Sam, Harris, Eric, & Haiden</p></footer>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
+
+

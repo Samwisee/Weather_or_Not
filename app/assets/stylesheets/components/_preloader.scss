@@ -1,0 +1,51 @@
+
+svg {
+  width: 110px;
+  height: 110px;
+}
+
+path {
+  stroke: transparent;
+  stroke-width: 0.25;
+  fill: #efefef;
+  height: auto;
+}
+
+#cloud {
+  position: relative;
+  z-index: 2;
+}
+
+#cloud path {
+  fill: white;
+}
+
+#sun {
+  margin-left: -10px;
+  margin-top: 6px;
+  opacity: 1.0;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 45px;
+  top: 15px;
+  z-index: 1;
+  animation-name: rotate;
+  animation-duration: 7000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+#sun path {
+  stroke-width: 0.18;
+  fill: yellow;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
