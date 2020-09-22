@@ -26,7 +26,9 @@
         <div class="col m-auto">
           <h1>Weather or Not</h1>
           <p>Make the most of your hour outside</p>
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+          <%= link_to new_user_registration_path, class: "nav-link" do %>
+            Get started <span class="fa fa-angle-right"></span>
+          <% end  %>
         </div>
       </div>
       <div class="row">
