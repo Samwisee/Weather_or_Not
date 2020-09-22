@@ -4,6 +4,7 @@ require 'open-uri'
 
 class Weather
     def self.call(lat, lon)
+        # This comment is to calling the api if the data is too old than 48 hours
         # forecast_data = File.read('app/services/forecast_data.json')
         # if valid_json?(forecast_data)
         #     forecast = JSON.parse(forecast_data)
