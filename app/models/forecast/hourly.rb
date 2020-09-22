@@ -26,14 +26,7 @@ class Forecast::Hourly
   end
 
   def tomorrow?
-    #  @user = User.find(id: 1)
-    #   lat = @user.latitude
-    #   lon = @user.longitude
-    #   data = Weather.call(lat, lon)
-    #   @forecast = Forecast.new(data)
     DateTime.current.new_offset(timezone).day + 1 ==  Time.at(@params['dt']).to_datetime.new_offset(timezone).day
-    # TODO: Use timezone from forecast.rb
-    # Time.current.day + 1 ==  ((DateTime.strptime(@params['dt'].to_s, '%s')) + @forecast.timezone.hour).day
   end
   
   def to_data

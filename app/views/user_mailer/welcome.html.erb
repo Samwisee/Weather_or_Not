@@ -1,5 +1,3 @@
-
-
 <% @user = User.last %>
 <% lat = @user.latitude%>
 <% lon = @user.longitude %>
@@ -13,5 +11,4 @@
 
   <h2 style="color: white"><%= @forecast.tomorrow_weather%></h2>
 
-  <h2 style="color: white">The best time to go out is <b><%= @forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p") %></b> with temperature of <%= @forecast.best_tomorrow_hourly.temperature.round %>C</h2>
 </div>
