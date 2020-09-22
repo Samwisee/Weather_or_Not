@@ -1,38 +1,43 @@
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<%= render layout: 'daybackground' do %>
+  <div class="container-fluid signup">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+    
+      <div class="wizard">
+        <div class="wizard-step col-10 m-auto">
+          <%= f.input :name,
+                      label: "What's your name?",
+                      required: false,
+                      autofocus: true,
+                      placeholder: "first name is fine" %>
+        <a href="#secondstep" class="signup-next" data-turbolinks="false">Next</a>
+        </div>
 
-  <div class="wizard">
-    <div class="wizard-step">
-      <%= f.input :name,
-                  label: "What's your name?",
-                  required: true,
-                  autofocus: true,
-                  placeholder: "first name is fine :)" %>
-    <a href="#secondstep" data-turbolinks="false">Next</a>
-    </div>
+        <div class="wizard-step col-10 m-auto" id="secondstep">
+          <%= f.input :city_name,
+                      label: "Where are you located near?",
+                      required: false,
+                      autofocus: true,
+                      placeholder: "cities are best" %>
+          <a href="#finalstep" class="signup-next" data-turbolinks="false">Next</a>
+        </div>
+      
+        <div class="wizard-step col-10 m-auto" id="finalstep">
+          <%= f.input :email,
+                      label: "What's you email?",
+                      required: false,
+                      autofocus: true,
+                      input_html: { autocomplete: "What's your email?" },
+                      placeholder: "we won't share it"%>
+          <%= f.input :password,
+                      required: false,
+                      input_html: { autocomplete: "new-password" },
+                      placeholder: "password" %>  
+          <%= f.button :submit, "Sign up", class: "wizard-btn" %>
+        </div>
 
-    <div class="wizard-step" id="secondstep">
-      <%= f.input :city_name,
-                  label: "Where are you located near?",
-                  required: true,
-                  autofocus: true,
-                  placeholder: "cities are best for us" %>
-      <a href="#finalstep" data-turbolinks="false">Next</a>
-    </div>
-   
-    <div class="wizard-step" id="finalstep">
-      <%= f.input :email,
-                  label: "What's you email?",
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "What's your email?" },
-                  placeholder: "we won't share it"%>
-      <%= f.input :password,
-                  required: true,
-                  input_html: { autocomplete: "new-password" },
-                  placeholder: "password" %>  
-      <%= f.button :submit, "Sign up", class: "wizard-btn" %>
-    </div>
-
+      </div>
+    <% end %>
   </div>
 <% end %>
+
