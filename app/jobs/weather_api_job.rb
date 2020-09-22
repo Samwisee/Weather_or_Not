@@ -18,7 +18,7 @@ class WeatherApiJob < ApplicationJob
       filter_user_available_hours = user_available_hours.collect do |free_hour|
         @forecast.tomorrow_hourlies_for[free_hour - 1]
       end
-      binding.pry
+     
       UserMailer.with(forecast: @forecast, user: user).forecast.deliver_now
     end
 
