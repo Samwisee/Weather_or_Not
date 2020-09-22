@@ -17,11 +17,11 @@ class WeatherApiJob < ApplicationJob
       UserMailer.with(forecast: @forecast, user: user).forecast.deliver_now
     end
 
-    # user_available_hours = User.find(25).available_hours
-    # # refactor this to include in forecast to filter with availability
-    # user_available_hours.each do |free_time|
-    #   available_data << tomorrow_hourlies_for[free_time]
-    # end
+    user_available_hours = User.find(25).available_hours
+    # refactor this to include in forecast to filter with availability
+    user_available_hours.each do |free_time|
+      available_data << tomorrow_hourlies_for[free_time]
+    end
     
     puts "Weather has been refreshed"
   end
