@@ -4,6 +4,7 @@
 
 h1, h2, h3, h4, h5, h6, p, a, input, span, label {
   color: white;
+  z-index: 10;
 }
 
 h1 {
@@ -13,10 +14,6 @@ h1 {
 p {
   font-size:calc(14px + 1.5vw);
   line-height: 60px;
-}
-
-label {
-  
 }
 
 .col a {
@@ -43,7 +40,7 @@ label {
 }
 
 .ap-dataset-places {
-  background-color: violet;
+  background-color: blue;
 }
 
 .login {
@@ -60,6 +57,7 @@ input.btn {
   color: white;
   transition: background-color 0.5s ease;
   width: 200px;
+  margin: 10px auto;
 }
 
 input.btn:hover {
@@ -87,13 +85,6 @@ a.signup-next:hover {
   padding: 0;
 }
 
-.freetimes {
-  background: linear-gradient(5deg, #2441e6, #020a5f);
-  height: 100vh;
-  padding: 0;
-  margin: auto;
-}
-
 .edit-user {
     background: linear-gradient(5deg, #2441e6, #020a5f);
     height: 100%;
@@ -114,7 +105,7 @@ input:checked + .period-option {
   min-height: 300px;
   width: 300px;
   border: 1px white solid;
-  border-radius: 10px;
+  border-radius: 10px 10px 4px 4px;
 
   .period-option-content {
     flex: 1;
@@ -178,3 +169,62 @@ input:checked + .period-option {
   position: absolute;
   transform: translateX(-5000px)
 }
+
+
+.freetimes {
+  background: linear-gradient(5deg, #2441e6, #020a5f);
+
+  .freetimes-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    grid-gap: 10px;
+  }
+
+
+}
+
+.home-forecast {
+  
+  #time-forecast {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  #weather-forecast {
+     min-width: 200px;
+  }
+}
+
+.start-at {
+  border-radius: 0 0 10px 0;
+}
+
+// .weather-icon {
+//   position: relative;
+//   width: 100px;
+//   height: 100px;
+//   top: 0;
+//   float: right;
+//   margin: 40px 40px 0 0;
+//   animation: weather-icon-move 5s ease-in-out infinite;
+// }
+// .sun { 
+//   background: #ffc72e; 
+//   border-radius: 50%; 
+//   box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
+//   animation: light 2000ms ease-in;
+//   animation-fill-mode: forwards;
+//   position: absolute;
+//   top: 30px;
+//   left: 30px;
+// }
+
+// @keyframes light {
+//   0% {
+//       box-shadow: rgba(255,255,0,0.6) 0 0 0 10px;
+//   }
+//   100% {
+//     box-shadow: rgba(255, 174, 0, 0.9) 0 0 0 2000px;
+//   }
+// }
