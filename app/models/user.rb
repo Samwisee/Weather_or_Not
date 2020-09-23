@@ -22,7 +22,7 @@ class User < ApplicationRecord
   end
 
   # after user sign up, the below code will send email to the user
-  # after_create :send_welcome_email, :send_forecast_email
+  after_create :send_welcome_email, :send_forecast_email
 
   private
 
