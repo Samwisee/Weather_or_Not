@@ -7,13 +7,20 @@
       <div style="display: none"> - for i in (0 .. 149)
             i.rain
       </div>
+       <div class="icon sun-shower">
+              <div class="cloud"></div>
+              <div class="sun">
+                <div class="rays"></div>
+              </div>
+              <div class="rains"></div>
+            </div>
       <div class="wizard">
         <div class="wizard-step">
             <h1>Hello! <%= current_user.name %></h1>
             <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
         
             <p><%= @forecast.tomorrow_weather%>, <%= @forecast.tomorrow_weather_description %> <%= image_tag @forecast.tomorrow_weather_icon %></p>
-  
+           
             <p>The best time to go out is <%= @forecast.best_tomorrow_hourly(current_user).datetime %> with temperature of <%= @forecast.best_tomorrow_hourly(current_user).temperature.round %>c, and it's feel like <%= @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>c</p>
         </div>
         <p>@forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p")</p>
