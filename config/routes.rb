@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/send_mail_and_redirect', to: 'freetimes#send_mail_and_redirect'
 
   require "sidekiq/web"
-  authenticate :user, ->(user) { user.admin? } do
+  authenticate :user, ->(user) { user } do
     mount Sidekiq::Web => '/sidekiq'
   end
 

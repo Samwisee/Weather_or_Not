@@ -33,3 +33,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initAutocomplete();
 });
+
+$(".alert-success" ).fadeOut(2000);
+$(".alert-warning" ).fadeOut(5000);
+$(".alert-danger" ).fadeOut(5000);

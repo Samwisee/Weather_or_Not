@@ -4,13 +4,9 @@
     <div class="row" style="height: 100vh">
       <div class="col text-center">
       <% if user_signed_in? %>
-      <% lat = current_user.latitude%>
-      <% lon = current_user.longitude %>
-      <% data = Weather.call(lat, lon) %>
-      <% @forecast = Forecast.new(data) %>
       <div style="display: none"> - for i in (0 .. 149)
-            i.rain</div>
-
+            i.rain
+      </div>
       <div class="wizard">
         <div class="wizard-step">
             <h1>Hello! <%= current_user.name %></h1>
