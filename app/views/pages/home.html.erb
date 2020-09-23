@@ -16,22 +16,31 @@
       <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>
       <% city = current_user.city_name.split(",")[0] %>
 
-      <p style="font-size: 70px">Hey <%= current_user.name %>!</p>
-      <div class="home-forecast">
+      <% case forecast
+         when "clear"
+         when "clouds"
+         when "rain"
+         when "thunderstorm"
+         when "snow"
+         end
+      %>
+      
+      <div class="weather-icon sun" ></div>
+      <p style="font-size: 70px">Hey <%= current_user.name %></p>
+      <div class="home-forecast pt-5">
         <div id="time-forecast" class="m-auto">
-          <div class="py-5">
-            <p style="font-size: 140px"> <%= time %></p>
+          <div>
+            <p style="font-size: 140px;"> <%= time %></p>
           </div>
           <div>
-            <p>is the best time to go out <br/> tomorrow in <%= city %></p>
-          </div>
-        </div>
-        <div id="weather-forecast" class="m-auto">
-          <div class="py-5">
             <p style="font-size: 140px"><%= temp %>C</p>
           </div>
+        </div>
+        <div id="weather-forecast" class="m-auto pt-5">
+          <div>
+          </div>
+          <p>is the best time for you to go out <br/> tomorrow in <%= city %></p>
           <p> <%= description %> </p>
-          <p style="opacity: 0">...don't mind me</p>
         </div>
       </div>
       <% else %>
@@ -46,7 +55,7 @@
       </div>
       <div class="row">
         <div class="col-md-10 offset-md-1 offset-lg-1 col-lg-5 text-center">
-          <p>Welcome to <b>Weather or Not</b> a weather service personalized to you!</p>
+          <p>Welcome to <b>Weather or Not</b> a weather service personalised to you!</p>
           <br/>
           <p style="font-size: calc(10px + 1.2vw)"> There's nothing to download, just sign up for our daily notification, and we will send you the best time to go outside based on your location and availability.</p>
         </div>

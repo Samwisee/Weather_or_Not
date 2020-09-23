@@ -4,6 +4,7 @@
 
 h1, h2, h3, h4, h5, h6, p, a, input, span, label {
   color: white;
+  z-index: 10;
 }
 
 h1 {
@@ -183,12 +184,11 @@ input:checked + .period-option {
 }
 
 .home-forecast {
-  display: flex;
   
-  flex-wrap: wrap;
-
   #time-forecast {
-    min-width: 200px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 
   #weather-forecast {
@@ -199,3 +199,32 @@ input:checked + .period-option {
 .start-at {
   border-radius: 0 0 10px 0;
 }
+
+// .weather-icon {
+//   position: relative;
+//   width: 100px;
+//   height: 100px;
+//   top: 0;
+//   float: right;
+//   margin: 40px 40px 0 0;
+//   animation: weather-icon-move 5s ease-in-out infinite;
+// }
+// .sun { 
+//   background: #ffc72e; 
+//   border-radius: 50%; 
+//   box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
+//   animation: light 2000ms ease-in;
+//   animation-fill-mode: forwards;
+//   position: absolute;
+//   top: 30px;
+//   left: 30px;
+// }
+
+// @keyframes light {
+//   0% {
+//       box-shadow: rgba(255,255,0,0.6) 0 0 0 10px;
+//   }
+//   100% {
+//     box-shadow: rgba(255, 174, 0, 0.9) 0 0 0 2000px;
+//   }
+// }
