@@ -13,5 +13,6 @@
 @import "pages/index";
 
 html {
+  z-index: 1;
   scroll-behavior: smooth;
 }
