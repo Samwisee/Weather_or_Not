@@ -39,7 +39,7 @@ p {
 }
 
 .ap-dataset-places {
-  background-color: violet;
+  background-color: blue;
 }
 
 .login {
@@ -56,6 +56,7 @@ input.btn {
   color: white;
   transition: background-color 0.5s ease;
   width: 200px;
+  margin: 10px auto;
 }
 
 input.btn:hover {
@@ -103,7 +104,7 @@ input:checked + .period-option {
   min-height: 300px;
   width: 300px;
   border: 1px white solid;
-  border-radius: 10px;
+  border-radius: 10px 10px 4px 4px;
 
   .period-option-content {
     flex: 1;
@@ -179,4 +180,22 @@ input:checked + .period-option {
   }
 
 
+}
+
+.home-forecast {
+  display: flex;
+  
+  flex-wrap: wrap;
+
+  #time-forecast {
+    min-width: 200px;
+  }
+
+  #weather-forecast {
+     min-width: 200px;
+  }
+}
+
+.start-at {
+  border-radius: 0 0 10px 0;
 }

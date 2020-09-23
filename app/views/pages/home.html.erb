@@ -1,7 +1,7 @@
 
 <%= render layout: 'rainbackground' do %>
   <div class="container-fluid home">
-    <div class="row" style="height: 100vh">
+    <div class="row align-items-center" style="height: 100vh">
       <div class="col text-center">
       <% if user_signed_in? %>
       <div style="display: none"> - for i in (0 .. 149)
@@ -14,15 +14,25 @@
       <% time = @forecast.best_tomorrow_hourly(current_user).datetime.strftime("%I:%M %p") %>
       <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
       <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>
+      <% city = current_user.city_name.split(",")[0] %>
 
-      <div class="wizard">
-          <p>Hey <%= current_user.name %>!</p>
-          <h2>Tomorrow's forecast in <%= current_user.city_name.split(",")[0] %> </h2>
-
-
-          <p> <%= forecast %>, <%= description %> <%= image %> </p>
-
-          <p>The best time to go out is <%= time %>  with temperature of <%= temp %>C</p>
+      <p style="font-size: 70px">Hey <%= current_user.name %>!</p>
+      <div class="home-forecast">
+        <div id="time-forecast" class="m-auto">
+          <div class="py-5">
+            <p style="font-size: 140px"> <%= time %></p>
+          </div>
+          <div>
+            <p>is the best time to go out <br/> tomorrow in <%= city %></p>
+          </div>
+        </div>
+        <div id="weather-forecast" class="m-auto">
+          <div class="py-5">
+            <p style="font-size: 140px"><%= temp %>C</p>
+          </div>
+          <p> <%= description %> </p>
+          <p style="opacity: 0">...don't mind me</p>
+        </div>
       </div>
       <% else %>
       <div class="row" style="height: 100vh">
@@ -49,7 +59,6 @@
       <% end %>
 
         
-      <footer><p>Built by: Sam, Harris, Eric, & Haiden</p></footer>
       </div>
     </div>
   </div>

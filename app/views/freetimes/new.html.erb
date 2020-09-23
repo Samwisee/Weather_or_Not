@@ -1,9 +1,9 @@
 <div class="freetimes container-fluid" style="min-height: 100vh">
   <div class="row align-items-center" style="min-height: 100vh">
     <div class="col text-center">
-    <h2>When are good times for you to take breaks during the day?</h2>
+    <h2 class="my-5">When are good times for you to take breaks during the day?</h2>
       <div class="freetimes-grid">
-        <div>
+        <div class="d-flex justify-content-center">
           <%=  simple_form_for Freetime.new, remote: true do |f| %>
             <%= f.check_box :active, :id => "period-option-checkbox-morning-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %>
             <div class="period-option">
@@ -19,7 +19,7 @@
             </div>
           <% end %>
         </div>
-        <div>
+        <div class="d-flex justify-content-center">
           <%=  simple_form_for Freetime.new, remote: true do |f| %>
             <%= f.check_box :active, :id => "period-option-checkbox-noon-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_noon`).click();" %>
             <div class="period-option">
@@ -35,7 +35,7 @@
             </div>
           <% end %>
         </div>
-        <div>
+        <div class="d-flex justify-content-center">
           <%=  simple_form_for Freetime.new, method: :post, remote: true do |f| %>
             <%= f.check_box :active, :id => "period-option-checkbox-night-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_night`).click();" %>
             <div class="period-option">
@@ -44,7 +44,7 @@
                 <%= f.input :period, input_html: {value: 'night'} %>
               </div>
               <div class="period-option-toolbar">
-                <%= f.input :start_at, input_html: {value: '14:00'} %>
+                <%= tag.span f.input :start_at, input_html: {value: '14:00'} %>
                 <%= f.input :end_at, input_html: {value: '17:00'} %>
               </div>
 
@@ -53,8 +53,9 @@
           <% end %>
         </div>
       </div>
-
-      <%= link_to "Submit", send_mail_and_redirect_path %> 
+      <div class="my-5">
+        <%= link_to "Submit", send_mail_and_redirect_path %> 
+      </div>
     </div>
   </div>
 </div>
