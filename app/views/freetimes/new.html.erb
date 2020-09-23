@@ -2,11 +2,11 @@
   <div class="row" style="height: 100vh">
     <div class="col text-center m-auto">
       <h2>Select periods for breaks</h2>
-        <%=  simple_form_for Freetime.new, method: :post, remote: true do |f| %>
-            <%= f.check_box :active, :id => "period-option-checkbox-night-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_night`).click();" %>
-      <div class="period-option">
-        <div class="period-option-content">
-        <label for="period-option-checkbox-night-ironically" class="period-option-hitarea"></label>
+      <%=  simple_form_for Freetime.new, method: :post, remote: true do |f| %>
+        <%= f.check_box :active, :id => "period-option-checkbox-night-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_night`).click();" %>
+        <div class="period-option">
+          <div class="period-option-content">
+            <label for="period-option-checkbox-night-ironically" class="period-option-hitarea"></label>
             <%= f.input :period, input_html: {value: 'night'} %>
           </div>
           <div class="period-option-toolbar">
@@ -15,19 +15,26 @@
           </div>
 
           <%= f.button :submit, id: "checkbox_submit_night", class: "d-none" %>
-          </div>
-        <% end %>
-      <%=  simple_form_for Freetime.new, remote: true do |f| %>
-        <label><%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %> Morning (8:00-11:00)</label>
-        <%= f.input :period, input_html: {value: 'morning'} %>
-        <%= f.input :start_at, input_html: {value: '8:00'} %>
-        <%= f.input :end_at, input_html: {value: '11:00'} %>
-
-        <%= f.button :submit, id: "checkbox_submit_morning", class: "d-none" %>
+        </div>
       <% end %>
 
       <%=  simple_form_for Freetime.new, remote: true do |f| %>
-        <%= f.check_box :active, :onclick => "javascript: document.getElementById(`checkbox_submit_noon`).click();" %><span> Noon (11:00-14:00)</span>
+        <%= f.check_box :active, :id => "period-option-checkbox-morning-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %>
+        <div class="period-option">
+          <div class="period-option-content">
+            <label for="period-option-checkbox-morning-ironically" class="period-option-hitarea"></label>
+            <%= f.input :period, input_html: {value: 'morning'} %>
+          </div>
+          <div class="period-option-toolbar">
+            <%= f.input :start_at, input_html: {value: '8:00'} %>
+            <%= f.input :end_at, input_html: {value: '11:00'} %>
+          </div>
+        <%= f.button :submit, id: "checkbox_submit_morning", class: "d-none" %>
+        </div>
+      <% end %>
+
+      <%=  simple_form_for Freetime.new, remote: true do |f| %>
+        <%= f.check_box :active, :id => "period-option-checkbox-morning-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_noon`).click();" %><span> Noon (11:00-14:00)</span>
         <%= f.input :period, input_html: {value: 'noon'} %>
         <%= f.input :start_at, input_html: {value: '11:00'} %>
         <%= f.input :end_at, input_html: {value: '14:00'} %>
