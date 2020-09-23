@@ -18,8 +18,10 @@ class UserMailer < ApplicationMailer
   def forecast
     @greeting = "Hi"
     @user = params[:user]
-    @forecast = params[:forecast]
-    mail(to: @user.email, subject: 'Weather or Not')
+    data =  Weather.call(@user.latitude, @user.longitude)
+    @forecast = Forecast.new(data)
+    @tomorrow_best_time = @forecast.best_tomorrow_hourly(@user)
+    mail(to: @user.email, subject: 'Weather or Not: Best time for tomorrow to go outside')
     # mail to: "to@example.org"
   end
 end

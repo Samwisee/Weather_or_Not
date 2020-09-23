@@ -1,13 +1,8 @@
 <% @user = User.last %>
-<% lat = @user.latitude%>
-<% lon = @user.longitude %>
-<% data = Weather.call(lat, lon) %>
-<% @forecast = Forecast.new(data) %>
+
 <div style="background-image: linear-gradient(#e66465, #9198e5); padding: 10px">
   <h1 style="color: white">Weather or Not</h1>
-
   <h2 style="color: white">Hello <%= @user.name %>!</h2>
-  <h3 style="color: white">Tomorrow's forecast in <%= @user.city_name %> </h3>
-  <h2 style="color: white"><%= @forecast.tomorrow_weather%></h2>
-
+  <h2 style="color: white">Thank you for signing up!</h2>
+  <h2 style="color: white"> You will receive the best time to go out notification for tomorrow soon!</h2>
 </div>
