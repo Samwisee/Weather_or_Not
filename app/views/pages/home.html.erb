@@ -11,7 +11,7 @@
       <% forecast =  @forecast.tomorrow_weather%>
       <% description = @forecast.tomorrow_weather_description %>
       <% image = image_tag @forecast.tomorrow_weather_icon %>
-      <% time =  @forecast.best_tomorrow_hourly(current_user).datetime.strftime("%I:%M %p") %>
+      <% time = @forecast.best_tomorrow_hourly(current_user).datetime.strftime("%I:%M %p") %>
       <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
       <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>%>
 

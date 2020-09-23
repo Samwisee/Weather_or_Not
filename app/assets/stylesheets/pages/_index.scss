@@ -15,10 +15,6 @@ p {
   line-height: 60px;
 }
 
-label {
-  
-}
-
 .col a {
   border: 1.5px solid white;
   border-radius: 30px;
@@ -85,13 +81,6 @@ a.signup-next:hover {
 
 .signup {
   padding: 0;
-}
-
-.freetimes {
-  background: linear-gradient(5deg, #2441e6, #020a5f);
-  height: 100vh;
-  padding: 0;
-  margin: auto;
 }
 
 .edit-user {
@@ -179,9 +168,15 @@ input:checked + .period-option {
   transform: translateX(-5000px)
 }
 
-.freetimes-grid {
-  display: grid;
-  margin: auto;
-  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-  
+
+.freetimes {
+  background: linear-gradient(5deg, #2441e6, #020a5f);
+
+  .freetimes-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    grid-gap: 10px;
+  }
+
+
 }
