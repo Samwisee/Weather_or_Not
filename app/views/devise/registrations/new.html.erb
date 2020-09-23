@@ -4,21 +4,23 @@
       <%= f.error_notification %>
     
       <div class="wizard">
-        <div class="wizard-step col-10 m-auto">
+        <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto">
           <%= f.input :name,
                       label: "What's your name?",
                       required: false,
                       autofocus: true,
                       placeholder: "first name is fine" %>
+        <p style="color: gray; font-size: 10px">We'll use this to personalize your notifications</p>
         <a href="#secondstep" class="signup-next" data-turbolinks="false">Next</a>
         </div>
 
-        <div class="wizard-step col-10 m-auto" id="secondstep">
+        <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto" id="secondstep">
           <%= f.input :city_name,
                       label: "Where are you located near?",
                       required: false,
                       autofocus: true,
                       placeholder: "cities are best" %>
+          <p style="color: gray; font-size: 10px">We'll use this to get your local weather</p>
           <a href="#finalstep" class="signup-next" data-turbolinks="false">Next</a>
         </div>
       
@@ -33,7 +35,7 @@
                       required: false,
                       input_html: { autocomplete: "new-password" },
                       placeholder: "password" %>  
-          <%= f.button :submit, "Sign up", class: "wizard-btn" %>
+          <%= f.button :submit, "Sign up" %>
         </div>
 
       </div>

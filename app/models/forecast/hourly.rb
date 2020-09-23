@@ -10,7 +10,6 @@ class Forecast::Hourly
   
   def datetime
     Time.at(@params["dt"]).to_datetime.new_offset(timezone)
-
   end
 
   def temperature
