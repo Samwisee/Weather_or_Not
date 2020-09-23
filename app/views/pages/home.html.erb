@@ -4,21 +4,24 @@
     <div class="row" style="height: 100vh">
       <div class="col text-center">
       <% if user_signed_in? %>
-      <% lat = current_user.latitude%>
-      <% lon = current_user.longitude %>
-      <% data = Weather.call(lat, lon) %>
-      <% @forecast = Forecast.new(data) %>
       <div style="display: none"> - for i in (0 .. 149)
             i.rain</div>
 
-      <div class="wizard">
-          <h1>Hello! <%= current_user.name %></h1>
-          <h2>Tomorrow's forecast in <%= current_user.city_name %> </h2>
-      
-          <p><%= @forecast.tomorrow_weather%>, <%= @forecast.tomorrow_weather_description %> <%= image_tag @forecast.tomorrow_weather_icon %></p>
+      <% forecast =  @forecast.tomorrow_weather%>
+      <% description = @forecast.tomorrow_weather_description %>
+      <% image = image_tag @forecast.tomorrow_weather_icon %>
+      <% time =  @forecast.best_tomorrow_hourly(current_user).datetime.strftime("%I:%M %p") %>
+      <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
+      <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>%>
 
-          <p>The best time to go out is <%= @forecast.best_tomorrow_hourly(current_user).datetime %> with temperature of <%= @forecast.best_tomorrow_hourly(current_user).temperature.round %>c, and it's feel like <%= @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>c</p>
-        <p>@forecast.best_tomorrow_hourly.datetime.strftime("%I:%M %p")</p>
+      <div class="wizard">
+          <p>Hey <%= current_user.name %>!</p>
+          <h2>Tomorrow's forecast in <%= current_user.city_name.match(/,[^\n]*/) %> </h2>
+
+
+          <p> <%= forecast %>, <%= description %> <%= image %> </p>
+
+          <p>The best time to go out is <%= time %>  with temperature of <%= temp %>C</p>
       </div>
       <% else %>
       <div class="row" style="height: 100vh">
