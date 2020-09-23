@@ -13,11 +13,11 @@
       <% image = image_tag @forecast.tomorrow_weather_icon %>
       <% time = @forecast.best_tomorrow_hourly(current_user).datetime.strftime("%I:%M %p") %>
       <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
-      <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>%>
+      <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>
 
       <div class="wizard">
           <p>Hey <%= current_user.name %>!</p>
-          <h2>Tomorrow's forecast in <%= current_user.city_name.match(/,[^\n]*/) %> </h2>
+          <p>Tomorrow's forecast in <%= current_user.city_name.match(/^(.+?),/) %> <p>
 
 
           <p> <%= forecast %>, <%= description %> <%= image %> </p>
