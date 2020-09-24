@@ -6,11 +6,11 @@
       <div class="wizard">
         <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto">
           <%= f.input :name,
-                      label: "What's your name?",
+                      label: "What's your name?",             
                       required: false,
                       autofocus: true,
-                      placeholder: "first name is fine" %>
-        <p style="color: gray; font-size: 10px">We'll use this to personalize your notifications</p>
+                      placeholder: "First name is fine..." %>
+        <p style="color: white; font-size: 12px; opacity: 0.8">We'll use this to personalize your notifications</p>
         <a href="#secondstep" class="signup-next" data-turbolinks="false">Next</a>
         </div>
 
@@ -19,8 +19,8 @@
                       label: "Where are you located near?",
                       required: false,
                       autofocus: true,
-                      placeholder: "cities are best" %>
-          <p style="color: gray; font-size: 10px">We'll use this to get your local weather</p>
+                      placeholder: "Cities are best" %>
+          <p style="color: white; font-size: 12px; opacity: 0.8">We'll use this to get your local weather</p>
           <a href="#finalstep" class="signup-next" data-turbolinks="false">Next</a>
         </div>
       
@@ -33,9 +33,8 @@
                       placeholder: "we won't share it"%>
           <%= f.input :password,
                       required: false,
-                      input_html: { autocomplete: "new-password" },
                       placeholder: "password" %>  
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", class: "sign-up-btn" %>
         </div>
 
       </div>
