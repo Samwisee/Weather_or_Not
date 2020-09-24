@@ -9,7 +9,7 @@
             <div class="period-option">
               <div class="period-option-content">
                 <label for="period-option-checkbox-morning-ironically" class="period-option-hitarea"></label>
-                <%= f.input :period, input_html: {value: 'morning'} %>
+                <%= f.input :period, input_html: {value: 'Morning'} %>
               </div>
               <div class="period-option-toolbar">
                 <%= f.input :start_at, input_html: {value: '8:00'} %>
@@ -25,7 +25,7 @@
             <div class="period-option">
               <div class="period-option-content">
                 <label for="period-option-checkbox-noon-ironically" class="period-option-hitarea"></label>
-                <%= f.input :period, input_html: {value: 'noon'} %>
+                <%= f.input :period, input_html: {value: 'Noon'} %>
               </div>
               <div class="period-option-toolbar">
                 <%= f.input :start_at, input_html: {value: '11:00'} %>
@@ -37,11 +37,11 @@
         </div>
         <div class="d-flex justify-content-center">
           <%=  simple_form_for Freetime.new, method: :post, remote: true do |f| %>
-            <%= f.check_box :active, :id => "period-option-checkbox-night-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_night`).click();" %>
+            <%= f.check_box :active, :id => "period-option-checkbox-evening-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_night`).click();" %>
             <div class="period-option">
               <div class="period-option-content">
-                <label for="period-option-checkbox-night-ironically" class="period-option-hitarea"></label>
-                <%= f.input :period, input_html: {value: 'night'} %>
+                <label for="period-option-checkbox-evening-ironically" class="period-option-hitarea"></label>
+                <%= f.input :period, input_html: {value: 'Evening'} %>
               </div>
               <div class="period-option-toolbar">
                 <%= tag.span f.input :start_at, input_html: {value: '14:00'} %>
