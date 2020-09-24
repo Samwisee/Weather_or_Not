@@ -42,25 +42,23 @@
     </div>
   <% end %>
 <% else %>
-  <div class="container-fluid home">
-    <div class="row text-center" style="height: 100vh">
-      <div class="row" style="height: 100vh; width: 100vw;">
-        <div class="col m-auto won">
-          <h1>Weather or Not</h1>
-          <p>Make the most of your hour outside</p>
-          <%= link_to new_user_registration_path, class: "nav_button" do %>
-            Get started <span class="fa fa-angle-right"></span>
-          <% end  %>
-        </div>
+  <div class="container-fluid home" style="height: 100%">
+    <div class="row text-center" style="height: 100vh; width: 100vw;">
+      <div class="col m-auto won">
+        <h1>Weather or Not</h1>
+        <p>Make the most of your hour outside</p>
+        <%= link_to new_user_registration_path, class: "nav_button" do %>
+          Get started <span class="fa fa-angle-right"></span>
+        <% end  %>
       </div>
-      <div class="row">
-        <div class="col-md-10 m-auto col-lg-5 text-center">
-          <p>Welcome to <b>Weather or Not</b> a weather service personalised to you!</p>
-          <br/>
-          <p style="font-size: calc(10px + 1.2vw)"> There's nothing to download, just sign up for our daily notification, and we will send you the best time to go outside based on your location and availability.</p>
-        </div>
-      </div>     
     </div>
+    <div class="row">
+      <div class="col-md-10 m-auto col-lg-5 text-center"  style="height: 100%">
+        <p>Welcome to <b>Weather or Not</b> a weather service personalised to you!</p>
+        <br/>
+        <p style="font-size: calc(10px + 1.2vw)"> There's nothing to download, just sign up for our daily notification, and we will send you the best time to go outside based on your location and availability.</p>
+      </div>
+    </div>     
   </div>
 <% end %>
 
