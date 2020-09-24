@@ -37,7 +37,7 @@ class User < ApplicationRecord
   def send_forecast_email
     data =  Weather.call(latitude, longitude)
     @forecast = Forecast.new(data)
-    UserMailer.with(user: self).forecast.deliver_later!(wait_until: 2.minutes.from_now)
+    UserMailer.with(user: self).forecast.deliver_later!(wait_until: 1.minutes.from_now)
   end
 
 end
