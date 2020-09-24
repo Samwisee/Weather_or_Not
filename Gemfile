@@ -71,3 +71,4 @@ gem 'sidekiq-failures', '~> 1.0'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'letter_opener', group: :development
 gem 'figaro'
+gem 'cloudinary', '~> 1.16.0'
