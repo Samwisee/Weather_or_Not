@@ -2,7 +2,7 @@
 @import "home";
 
 
-h1, h2, h3, h4, h5, h6, p, a, input, span, label {
+h1, h2, h3, h4, h5, h6, p, a, input, span {
   color: white;
 }
 
@@ -13,21 +13,19 @@ h1 {
 p {
   font-size:calc(14px + 1.5vw);
   line-height: 60px;
-}
-
-label {
-  
+  // margin-bottom: 3rem;
 }
 
 .col a {
-  border: 1.5px solid white;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  padding: 12px 32px;
   border-radius: 30px;
   transition: 0.5s ease;
-  padding: 5px 20px;
   text-decoration: none;
   margin: auto;
   width: 300px;
-  font-size: calc(14px + 1.5vw);
+  font-size: calc(12px + 1.3vw);
 }
 
 .col a:hover {
@@ -43,23 +41,25 @@ label {
 }
 
 .ap-dataset-places {
-  background-color: violet;
+  background-color: blue;
 }
 
 .login {
   background: linear-gradient(5deg, #2441e6, #020a5f);
-  padding: 0;
-  margin: 0;
   width: 100% !important;
   height: 100vh;
 }
 
 input.btn {
-  border: 1.5px solid white;
-  border-radius: 30px;
+  border: none;
   color: white;
-  transition: background-color 0.5s ease;
-  width: 200px;
+  background: rgba(255,255,255,0.2);
+  padding: 12px 32px;
+  border-radius: 30px;
+  transition: 0.5s ease;
+  text-decoration: none;
+  width: 300px;
+  font-size: calc(12px + 1.3vw);
 }
 
 input.btn:hover {
@@ -87,13 +87,6 @@ a.signup-next:hover {
   padding: 0;
 }
 
-.freetimes {
-  background: linear-gradient(5deg, #2441e6, #020a5f);
-  height: 100vh;
-  padding: 0;
-  margin: auto;
-}
-
 .edit-user {
     background: linear-gradient(5deg, #2441e6, #020a5f);
     height: 100%;
@@ -111,10 +104,10 @@ input:checked + .period-option {
   opacity: 0.5;
   display: flex;
   flex-direction: column;
-  min-height: 300px;
+  min-height: 135px;
   width: 300px;
   border: 1px white solid;
-  border-radius: 10px;
+  border-radius: 10px 10px 4px 4px;
 
   .period-option-content {
     flex: 1;
@@ -161,13 +154,14 @@ input:checked + .period-option {
         z-index: 1;
         color: #666;
         text-transform: uppercase;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
         pointer-events: none;
       }
 
       input {
         // TODO overflow: hidden;
+        text-align: right;
       }
     }
   } 
@@ -178,3 +172,62 @@ input:checked + .period-option {
   position: absolute;
   transform: translateX(-5000px)
 }
+
+
+.freetimes {
+  background: linear-gradient(5deg, #2441e6, #020a5f);
+
+  .freetimes-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    grid-gap: 10px;
+  }
+
+
+}
+
+.home-forecast {
+  
+  #time-forecast {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  #weather-forecast {
+     min-width: 200px;
+  }
+}
+
+.start-at {
+  border-radius: 0 0 10px 0;
+}
+
+// .weather-icon {
+//   position: relative;
+//   width: 100px;
+//   height: 100px;
+//   top: 0;
+//   float: right;
+//   margin: 40px 40px 0 0;
+//   animation: weather-icon-move 5s ease-in-out infinite;
+// }
+// .sun { 
+//   background: #ffc72e; 
+//   border-radius: 50%; 
+//   box-shadow: rgba(255,255,0,0.1) 0 0 0 4px;
+//   animation: light 2000ms ease-in;
+//   animation-fill-mode: forwards;
+//   position: absolute;
+//   top: 30px;
+//   left: 30px;
+// }
+
+// @keyframes light {
+//   0% {
+//       box-shadow: rgba(255,255,0,0.6) 0 0 0 10px;
+//   }
+//   100% {
+//     box-shadow: rgba(255, 174, 0, 0.9) 0 0 0 2000px;
+//   }
+// }
