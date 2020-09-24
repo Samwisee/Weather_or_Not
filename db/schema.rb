@@ -15,39 +15,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_033007) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "forecast_tables", force: :cascade do |t|
-    t.integer "dt"
-    t.float "temp"
-    t.float "feels_like"
-    t.float "lat"
-    t.float "lon"
-    t.integer "timezone"
-    t.float "rain_1h"
-    t.float "wind_speed"
-    t.string "weather_icon"
-    t.string "weather_description"
-    t.integer "wind_deg"
-    t.integer "clouds"
-    t.float "uvi"
-  end
-
-  create_table "forecasts", force: :cascade do |t|
-    t.integer "dt"
-    t.float "temp"
-    t.float "feels_like"
-    t.float "lat"
-    t.float "lon"
-    t.integer "timezone"
-    t.float "rain_1h"
-    t.float "wind_speed"
-    t.string "weather_icon"
-    t.string "weather_description"
-    t.integer "wind_deg"
-    t.integer "clouds"
-    t.float "uvi"
-    t.string "city"
-  end
-
   create_table "freetimes", force: :cascade do |t|
     t.string "start_at"
     t.string "end_at"
@@ -56,8 +23,6 @@ ActiveRecord::Schema.define(version: 2020_09_23_033007) do
     t.boolean "active"
     t.string "period"
     t.bigint "user_id", null: false
-    t.time "start_time"
-    t.time "end_time"
     t.index ["user_id"], name: "index_freetimes_on_user_id"
   end
 
