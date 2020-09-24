@@ -7,9 +7,11 @@
         <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto">
           <%= f.input :name,
                       label: "What's your name?",
+                      input_html: { class: "input-style" },
+                      label_html: { class: "label-style" },
                       required: false,
                       autofocus: true,
-                      placeholder: "first name is fine" %>
+                      placeholder: "First name is fine..." %>
         <p style="color: gray; font-size: 10px">We'll use this to personalize your notifications</p>
         <a href="#secondstep" class="signup-next" data-turbolinks="false">Next</a>
         </div>
@@ -17,9 +19,11 @@
         <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto" id="secondstep">
           <%= f.input :city_name,
                       label: "Where are you located near?",
+                      input_html: { class: "input-style" },
+                      label_html: { class: "label-style" },
                       required: false,
                       autofocus: true,
-                      placeholder: "cities are best" %>
+                      placeholder: "Cities are best" %>
           <p style="color: gray; font-size: 10px">We'll use this to get your local weather</p>
           <a href="#finalstep" class="signup-next" data-turbolinks="false">Next</a>
         </div>
@@ -27,13 +31,16 @@
         <div class="wizard-step col-10 m-auto" id="finalstep">
           <%= f.input :email,
                       label: "What's you email?",
+                      input_html: { class: "input-style" },
+                      label_html: { class: "label-style" },
                       required: false,
                       autofocus: true,
                       input_html: { autocomplete: "What's your email?" },
                       placeholder: "we won't share it"%>
           <%= f.input :password,
                       required: false,
-                      input_html: { autocomplete: "new-password" },
+                      input_html: { class: "input-style" },
+                      label_html: { class: "label-style" },
                       placeholder: "password" %>  
           <%= f.button :submit, "Sign up" %>
         </div>
