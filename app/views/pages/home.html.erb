@@ -1,4 +1,3 @@
-
 <%= render layout: 'rainbackground' do %>
   <div class="container-fluid home">
     <div class="row align-items-center" style="height: 100vh">
@@ -15,32 +14,33 @@
       <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
       <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>
       <% city = current_user.city_name.split(",")[0] %>
-
-      <% case forecast
-         when "clear"
-         when "clouds"
-         when "rain"
-         when "thunderstorm"
-         when "snow"
-         end
-      %>
-      
-      <div class="weather-icon sun" ></div>
       <p style="font-size: 70px">Hey <%= current_user.name %></p>
       <div class="home-forecast pt-5">
         <div id="time-forecast" class="m-auto">
           <div>
-            <p style="font-size: 140px;"> <%= time %></p>
+            <p>The best time to go out  <br/> in <%= city %> tomorrow is</p>
+            <p style="font-size: 140px; line-height: 200px;"> <%= time %></p>
+            <p style="font-size: 140px"><%= temp %>°C</p>
           </div>
-          <div>
-            <p style="font-size: 140px"><%= temp %>C</p>
-          </div>
+
         </div>
         <div id="weather-forecast" class="m-auto pt-5">
-          <div>
+          <% if description.include? "rain" %>
+            <div class="icon rainy">
+            <div class="cloud"></div>
+            <div class="rains"></div>
+            </div>
+          <% elsif description.include? "sky" %>
+          <div class="icon sunny">
+          <div class="sun">
+          <div class="rays"></div>
           </div>
-          <p>is the best time for you to go out <br/> tomorrow in <%= city %></p>
-          <p> <%= description %> </p>
+          <% elsif description.include? "clouds" %>
+          <div class="icon cloudy">
+          <div class="cloud"></div>
+          <div class="cloud"></div>
+          </div>
+          <% end %>
         </div>
       </div>
       <% else %>
