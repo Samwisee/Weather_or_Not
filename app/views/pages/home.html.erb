@@ -1,49 +1,50 @@
-<%= render layout: 'rainbackground' do %>
-  <div class="container-fluid home">
-    <div class="row align-items-center" style="height: 100vh">
-      <div class="col text-center">
-      <% if user_signed_in? %>
-      <div style="display: none"> - for i in (0 .. 149)
-            i.rain
-      </div>
-
-      <% forecast =  @forecast.tomorrow_weather%>
-      <% description = @forecast.tomorrow_weather_description %>
-      <% image = image_tag @forecast.tomorrow_weather_icon %>
-      <% time = @forecast.best_tomorrow_hourly(current_user).datetime.strftime("%I:%M %p") %>
-      <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
-      <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>
-      <% city = current_user.city_name.split(",")[0] %>
-      <p style="font-size: 70px">Hey <%= current_user.name %></p>
-      <div class="home-forecast pt-5">
-        <div id="time-forecast" class="m-auto">
-          <div>
-            <p>The best time to go out  <br/> in <%= city %> tomorrow is</p>
-            <p style="font-size: 140px; line-height: 200px;"> <%= time %></p>
-            <p style="font-size: 140px"><%= temp %>°C</p>
-          </div>
-        </div>
-        <div id="weather-forecast" class="m-auto pt-5">
-          <% if description.include? "rain" %>
-            <div class="icon rainy">
-            <div class="cloud"></div>
-            <div class="rains"></div>
+<% if user_signed_in? %>
+  <%= render layout: 'rainbackground' do %>
+    <div class="container-fluid rain-container">
+      <div class="row align-items-center" style="height: 100vh">
+        <div class="col text-center">
+        <% forecast =  @forecast.tomorrow_weather%>
+        <% description = @forecast.tomorrow_weather_description %>
+        <% image = image_tag @forecast.tomorrow_weather_icon %>
+        <% time = @forecast.best_tomorrow_hourly(current_user).datetime.strftime("%I:%M %p") %>
+        <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
+        <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>
+        <% city = current_user.city_name.split(",")[0] %>
+        <p style="font-size: 70px">Hey <%= current_user.name %></p>
+        <div class="home-forecast pt-5">
+          <div id="time-forecast" class="m-auto">
+            <div>
+              <p>The best time to go out  <br/> in <%= city %> tomorrow is</p>
+              <p style="font-size: 140px; line-height: 200px;"> <%= time %></p>
+              <div id="weather-forecast" class="m-auto pt-5 d-flex justify-content-around">
+              <p style="font-size: 140px"><%= temp %>°C</p>
+                <% if description.include? "rain" %>
+                  <div class="icon rainy">
+                  <div class="cloud"></div>
+                  <div class="rains"></div>
+                  </div>
+                <% elsif description.include? "sky" %>
+                <div class="icon sunny">
+                <div class="sun">
+                <div class="rays"></div>
+                </div>
+                <% elsif description.include? "clouds" %>
+                <div class="icon cloudy">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+                </div>
+                <% end %>
+              </div>
             </div>
-          <% elsif description.include? "sky" %>
-          <div class="icon sunny">
-          <div class="sun">
-          <div class="rays"></div>
           </div>
-          <% elsif description.include? "clouds" %>
-          <div class="icon cloudy">
-          <div class="cloud"></div>
-          <div class="cloud"></div>
-          </div>
-          <% end %>
         </div>
       </div>
-      <% else %>
-      <div class="row" style="height: 100vh">
+    </div>
+  <% end %>
+<% else %>
+  <div class="container-fluid home">
+    <div class="row text-center" style="height: 100vh">
+      <div class="row" style="height: 100vh; width: 100vw;">
         <div class="col m-auto won">
           <h1>Weather or Not</h1>
           <p>Make the most of your hour outside</p>
@@ -58,12 +59,7 @@
           <br/>
           <p style="font-size: calc(10px + 1.2vw)"> There's nothing to download, just sign up for our daily notification, and we will send you the best time to go outside based on your location and availability.</p>
         </div>
-      </div>
-        
-      <% end %>
-
-        
-      </div>
+      </div>     
     </div>
   </div>
 <% end %>

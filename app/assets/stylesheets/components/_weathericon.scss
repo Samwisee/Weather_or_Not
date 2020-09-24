@@ -7,9 +7,8 @@ html *:after { box-sizing: inherit; }
   position: relative;
   display: inline-block;
   width: 12em;
-  height: 10em;
   font-size: 1em; /* control icon size here */
-  color: #98E5F9;
+  color: transparent;
 }
 
 .cloud {
@@ -20,7 +19,7 @@ html *:after { box-sizing: inherit; }
   width: 3.6875em;
   height: 3.6875em;
   margin: -1.84375em;
-  background: currentColor;
+  background: white;
   border-radius: 50%;
   box-shadow:
     -2.1875em 0.6875em 0 -0.6875em,
