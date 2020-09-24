@@ -1,9 +1,9 @@
 <div class="freetimes container-fluid" style="min-height: 100vh">
   <div class="row align-items-center" style="min-height: 100vh">
     <div class="col text-center">
-    <h2 class="my-5" style="top: 100px">Set your freetimes on a normal day</h2>
-      <div class="freetimes-grid">
-        <div class="d-flex justify-content-center">
+    <h2 class="my-5 pt-5" style="top: 100px">Select and edit your freetimes on a normal day</h2>
+      <div>
+        <div class="d-flex justify-content-center my-5">
           <%=  simple_form_for Freetime.new, remote: true do |f| %>
             <%= f.check_box :active, :id => "period-option-checkbox-morning-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %>
             <div class="period-option">
@@ -19,7 +19,7 @@
             </div>
           <% end %>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center my-5">
           <%=  simple_form_for Freetime.new, remote: true do |f| %>
             <%= f.check_box :active, :id => "period-option-checkbox-noon-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_noon`).click();" %>
             <div class="period-option">

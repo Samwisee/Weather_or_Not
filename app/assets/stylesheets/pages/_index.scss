@@ -120,7 +120,8 @@ input:checked + .period-option {
     }
 
     .period-option-hitarea {
-      height: 50px !important;
+      height: 70px !important;
+      width: 250px !important;
 
       &:hover {
         cursor: pointer;

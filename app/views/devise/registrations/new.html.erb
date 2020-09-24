@@ -10,19 +10,19 @@
                       required: false,
                       autofocus: true,
                       placeholder: "First name is fine..." %>
-        <a href="#secondstep" class="signup-next" data-turbolinks="false">Next</a>
+        <a href="#" onClick=second.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
         </div>
 
-        <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto" id="secondstep">
+        <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto" id="secondstep" >
           <%= f.input :city_name,
                       label: "Where are you located near?",
                       required: false,
                       autofocus: true,
                       placeholder: "Cities are best" %>
-          <a href="#finalstep" class="signup-next" data-turbolinks="false">Next</a>
+          <a href="#" onClick=last.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
         </div>
       
-        <div class="wizard-step col-10 m-auto" id="finalstep">
+        <div class="wizard-step col-10 m-auto" id="laststep" >
           <%= f.input :email,
                       label: "What's you email?",
                       required: false,
@@ -39,4 +39,9 @@
     <% end %>
   </div>
 <% end %>
+
+<script> 
+  const second = document.getElementById('secondstep')
+  const last = document.getElementById('laststep')
+</script>
 
