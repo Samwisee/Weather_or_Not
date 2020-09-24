@@ -38,6 +38,7 @@ class User < ApplicationRecord
     data =  Weather.call(latitude, longitude)
     @forecast = Forecast.new(data)
     UserMailer.with(user: self).forecast.deliver_later!(wait_until: 2.minutes.from_now)
+    heroku run rake service:api_refresh
   end
 
 end

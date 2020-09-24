@@ -27,3 +27,12 @@
   height: 400px;
   border: 1px solid white;
 }
+
+.transition-fade {
+  transition: 0.8s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0.5;
+}

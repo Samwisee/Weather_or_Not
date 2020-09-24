@@ -10,11 +10,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    
   </head>
 
-  <body>
+  <body >
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="transition-fade"><%= yield %></div>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+    <script>const swup = new Swup();</script>
   </body>
 </html>
