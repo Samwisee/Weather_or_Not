@@ -1,5 +1,8 @@
 // Specific CSS for your home-page
 
+.form-control::placeholder {
+  color: rgb(197, 185, 203);
+}
 .home {
   width: 100%;
   // background: linear-gradient(5deg, #2441e6, #020a5f);
@@ -37,6 +40,7 @@
   border: 1px solid white;
 }
 
+<<<<<<< HEAD
 .transition-fade {
   transition: 0.8s;
   opacity: 1;
@@ -45,3 +49,20 @@
 html.is-animating .transition-fade {
   opacity: 0.5;
 }
+=======
+.signup-form-input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  box-shadow: none;
+  font-weight: bold;
+}
+
+.signup-form-input:focus {
+  background: none!important;
+  box-shadow: none!important;
+  color: white;
+  font-weight: bold;
+}
+>>>>>>> 692f3dbdd28b6e03be82f93dcbe27a896ed951ed

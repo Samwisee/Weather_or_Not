@@ -13,9 +13,9 @@
           <div class="m-auto" style="width: 340px;">
             <p style="font-size: 70px; width: 340px">Hey <%= current_user.name %></p>
             <p style="width: 340px; font-size: 23px">The best time for you go  <br/> out in <b> <%= city %> </b> tomorrow is</p>
-            <p style="font-size: 70px; line-height: 50px; width: 330px;"> <%= time %></p>
+            <p style="font-size: 72px; line-height: 72px; width: 330px;"> <%= time %></p>
             <div class="d-flex" style="width: 340px">
-              <p style="font-size: 80px; position: relative; left: 8px; top: 15px; padding-right: 10px"><%= temp %>°C</p>
+              <p style="font-size: 80px; position: relative; left: 2px; top: 15px; padding-right: 10px"><%= temp %>°C</p>
               <% if description.include? "rain" %>
                 <div class="icon rainy">
                 <div class="cloud"></div>

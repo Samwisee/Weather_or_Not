@@ -41,8 +41,14 @@ p {
 }
 
 .ap-dataset-places {
-  background-color: blue;
+  background-color: black;
 }
+
+.ap-cursor {
+  background-color: #04027D;
+}
+
+
 
 .login {
   background: linear-gradient(5deg, #2441e6, #020a5f);
@@ -63,7 +69,7 @@ input.btn {
 }
 
 input.btn:hover {
-  color: white;
+  color: blue;
   background-color: rgba(255, 255, 255, 0.1);
   transition: background-color 0.5s ease;
 }
