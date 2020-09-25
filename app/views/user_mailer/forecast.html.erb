@@ -2,6 +2,7 @@
 <% city = @user.city_name.split(",")[0] %>
 <% time = @forecast.best_tomorrow_hourly(@user).datetime.strftime("%I:%M %p") %>
 <% temp = @forecast.best_tomorrow_hourly(@user).temperature.round %>
+<% description = @forecast.tomorrow_weather_description %>
 
 <style>
 .wizard-step {
@@ -20,7 +21,8 @@
       <h1 style="font-size: 35px;">Weather or Not</h1>
       <h2 style="font-size: 25px;">Hello <%= @user.name %>!</h2>
       <h2>The best time to go out in <%= city %> tomorrow is</h2>
-      <p style="font-size: 50px; line-height: 10px !important;"> <%= time %> <%= temp %>°C</p>
+      <p style="font-size: 50px;"> <%= time %> <%= temp %>°C</p>
+      <h2 style="font-size: 25px;"><%= description %></p>
     </div>
   </div>
 </div>
