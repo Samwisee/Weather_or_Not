@@ -28,10 +28,19 @@
 ul.navbar-nav a {
   color: rgb(185, 185, 185);
   transition: color 0.5s ease;
+
 }
 
 ul.navbar-nav a:hover {
   color:white;
   transition: color 0.5s ease;
   background: none;
+}
+
+.dropdown-item {
+  text-align: right;
+}
+
+.navbar-toggler {
+  border: none;
 }

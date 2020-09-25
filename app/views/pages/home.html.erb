@@ -1,8 +1,8 @@
 <% if user_signed_in? %>
   <%= render layout: 'rainbackground' do %>
-    <div class="container-fluid rain-container">
-      <div class="row align-items-center" style="height: 100vh">
-        <div class="col text-center">
+    <div class="container-fluid rain-container" style="height: 100vh;" >
+      <div class="row align-items-center" style="height: 100%; padding-top: 150px; overflow: hidden">
+        <div class="col text-center" style="width: 320px">
         <% forecast =  @forecast.tomorrow_weather%>
         <% description = @forecast.tomorrow_weather_description %>
         <% image = image_tag @forecast.tomorrow_weather_icon %>
@@ -10,31 +10,36 @@
         <% temp = @forecast.best_tomorrow_hourly(current_user).temperature.round %>
         <% feels_like = @forecast.best_tomorrow_hourly(current_user).feels_like_temperature.round %>
         <% city = current_user.city_name.split(",")[0] %>
-        <p style="font-size: 70px">Hey <%= current_user.name %></p>
+          <div class="m-auto" style="width: 340px;">
+            <p style="font-size: 70px; width: 340px">Hey <%= current_user.name %></p>
+            <p style="width: 340px; font-size: 23px">The best time for you go  <br/> out in <b> <%= city %> </b> tomorrow is</p>
+            <p style="font-size: 70px; line-height: 50px; width: 330px;"> <%= time %></p>
+            <div class="d-flex" style="width: 340px">
+              <p style="font-size: 80px; position: relative; left: 8px; top: 15px; padding-right: 10px"><%= temp %>°C</p>
+              <% if description.include? "rain" %>
+                <div class="icon rainy">
+                <div class="cloud"></div>
+                <div class="rains"></div>
+                </div>
+              <% elsif description.include? "sky" %>
+              <div class="icon sunny">
+              <div class="sun">
+              <div class="rays"></div>
+              </div>
+              <% elsif description.include? "clouds" %>
+              <div class="icon cloudy">
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+              </div>
+              <% end %>
+            </div>
+            <div class="py-4" style="width: 340px">
+              <p><%= description  %>
+            </div>
+          </div>
         <div class="home-forecast pt-5">
           <div id="time-forecast" class="m-auto">
-            <div>
-              <p>The best time to go out  <br/> in <%= city %> tomorrow is</p>
-              <p style="font-size: 140px; line-height: 200px;"> <%= time %></p>
-              <div id="weather-forecast" class="m-auto pt-5 d-flex justify-content-around">
-              <p style="font-size: 140px"><%= temp %>°C</p>
-                <% if description.include? "rain" %>
-                  <div class="icon rainy">
-                  <div class="cloud"></div>
-                  <div class="rains"></div>
-                  </div>
-                <% elsif description.include? "sky" %>
-                <div class="icon sunny">
-                <div class="sun">
-                <div class="rays"></div>
-                </div>
-                <% elsif description.include? "clouds" %>
-                <div class="icon cloudy">
-                <div class="cloud"></div>
-                <div class="cloud"></div>
-                </div>
-                <% end %>
-              </div>
+            <div id="weather-forecast" class="m-auto pt-5 d-flex justify-content-around">
             </div>
           </div>
         </div>
