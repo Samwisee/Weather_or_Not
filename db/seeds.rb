@@ -7,7 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Freetime.destroy_all
 User.destroy_all
+Forecast.destroy_all
+Location.destroy_all
 
+locations = [
+  { name: 'Melbourne', lat: 46.47, lon: 18.83 }
+]
+Location.create(locations)
 
 puts "Database clean"
 

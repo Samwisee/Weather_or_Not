@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_092345) do
+ActiveRecord::Schema.define(version: 2020_09_28_033927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,37 +36,20 @@ ActiveRecord::Schema.define(version: 2020_09_24_092345) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "forecast_tables", force: :cascade do |t|
-    t.integer "dt"
-    t.float "temp"
-    t.float "feels_like"
-    t.float "lat"
-    t.float "lon"
-    t.integer "timezone"
-    t.float "rain_1h"
-    t.float "wind_speed"
-    t.string "weather_icon"
-    t.string "weather_description"
-    t.integer "wind_deg"
-    t.integer "clouds"
-    t.float "uvi"
-  end
-
   create_table "forecasts", force: :cascade do |t|
-    t.integer "dt"
     t.float "temp"
     t.float "feels_like"
-    t.float "lat"
-    t.float "lon"
-    t.integer "timezone"
-    t.float "rain_1h"
+    t.integer "dt"
     t.float "wind_speed"
-    t.string "weather_icon"
-    t.string "weather_description"
-    t.integer "wind_deg"
-    t.integer "clouds"
-    t.float "uvi"
-    t.string "city"
+    t.float "rain"
+    t.string "description"
+    t.string "main"
+    t.bigint "location_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "short_description"
+    t.string "long_description"
+    t.index ["location_id"], name: "index_forecasts_on_location_id"
   end
 
   create_table "freetimes", force: :cascade do |t|
@@ -80,6 +63,14 @@ ActiveRecord::Schema.define(version: 2020_09_24_092345) do
     t.time "start_time"
     t.time "end_time"
     t.index ["user_id"], name: "index_freetimes_on_user_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.float "lat"
+    t.float "lon"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,5 +91,6 @@ ActiveRecord::Schema.define(version: 2020_09_24_092345) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "forecasts", "locations"
   add_foreign_key "freetimes", "users"
 end
