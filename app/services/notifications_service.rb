@@ -1,4 +1,5 @@
 require 'weather_service'
+require 'pry-byebug'
 require 'location'
 require 'forecast'
 
@@ -7,11 +8,14 @@ class Notification
   START_TIME = 8
   END_TIME = 17
   IDEAL_TEMP = 23
-
+  # currently 1601474400, check tomorrow
+  
+  
   def get
+    tomorrow_start_of_day = (DateTime.now.at_midnight + 2.day).to_time.to_i
     # TODO currently returning 96 entries not 48
-    @forecasts = Forecast.where('created_at > ?', 48.hours.ago)
-
+    @forecasts = Forecast.where('dt < ?', tomorrow_start_of_day)
+    binding.pry
     # Filter by freetime
     @freetime_filtered_forecasts = @forecasts.select do |forecast|
       # TODO: Add in for array
@@ -19,7 +23,13 @@ class Notification
     end
 
     # Filter by rain
-    @rain_filtered_forecasts = @freetime_filtered_forecasts.select { |forecast| forecast[:rain] == 0.0 }
+    @rain_filtered_forecasts = @freetime_filtered_forecasts.select { |forecast| forecast[:rain] < 0.1 }
+
+    if @rain_filtered_forecasts.empty?
+      # TODO fix this logic
+      @rain_filtered_forecasts = Forecast.all
+      # @freetime_filtered_forecasts.min_by { |forecast| forecast[:rain].min }
+    end
 
     # Find most ideal temperature
     @ideal_forecast = @rain_filtered_forecasts.sort_by do |forecast|
@@ -28,21 +38,6 @@ class Notification
     # TODO: Catch if there is no non-raining period
     @ideal_forecast.first
 
-  end
-  
-  def transform_time
-
-    Time.at(seconds_since_epoch_integer).to_datetime
-  end
-
-  def ideal_temp
-    get
-    temp = []
-    @forecasts.each do |forecast|
-      temp << forecast[:temp]
-    end
-    p temp.count # TODO: Outputs 96 hours of data not 
-    
   end
 
 end
