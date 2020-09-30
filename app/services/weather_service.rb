@@ -3,6 +3,7 @@ require 'location'
 require 'forecast'
 
 class WeatherService
+# This calls the weather api client and saves the 48 hour data into the database
 
   def update_forecasts
     # retrieve a list of cities from the DB
@@ -19,6 +20,7 @@ class WeatherService
   private
 
   def forecasts client, city
+    # Create new forecast object 48hr data
     forecasts = client.get city.lat, city.lon
     forecasts.map do |forecast|
       {
