@@ -1,13 +1,12 @@
 require 'weather_service'
-require 'pry-byebug'
 require 'location'
 require 'forecast'
 
 class Notification
 
-  FREETIMES_ARRAY = (8...17).to_a
-  # Filter for rain
-  STANDARD_TEMP = 23
+  START_TIME = 8
+  END_TIME = 17
+  IDEAL_TEMP = 23
 
   def get
     # TODO currently returning 96 entries not 48
@@ -15,13 +14,19 @@ class Notification
 
     # Filter by freetime
     @freetime_filtered_forecasts = @forecasts.select do |forecast|
-      # TODO: Add in iteration for array
-      Time.at(forecast.dt).hour >= 7 && Time.at(forecast.dt).hour < 17
+      # TODO: Add in for array
+      Time.at(forecast.dt).hour >= START_TIME && Time.at(forecast.dt).hour < END_TIME
     end
 
     # Filter by rain
     @rain_filtered_forecasts = @freetime_filtered_forecasts.select { |forecast| forecast[:rain] == 0.0 }
-    p @rain_filtered_forecasts
+
+    # Find most ideal temperature
+    @ideal_forecast = @rain_filtered_forecasts.sort_by do |forecast|
+      (forecast.temp - IDEAL_TEMP).abs
+    end
+    # TODO: Catch if there is no non-raining period
+    @ideal_forecast.first
 
   end
   
