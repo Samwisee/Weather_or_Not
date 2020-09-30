@@ -1,5 +1,7 @@
 require 'weather_service'
 require 'pry-byebug'
+require 'location'
+require 'forecast'
 
 class Notification
 
@@ -8,11 +10,21 @@ class Notification
   STANDARD_TEMP = 23
 
   def get
-    now = Time.now
-    @forecast = Forecast.where(Time.now - 24)
-     
-  end
+    # TODO currently returning 96 entries not 48
+    @forecasts = Forecast.where('created_at > ?', 48.hours.ago)
 
+    # Filter by freetime
+    @freetime_filtered_forecasts = @forecasts.select do |forecast|
+      # TODO: Add in iteration for array
+      Time.at(forecast.dt).hour >= 7 && Time.at(forecast.dt).hour < 17
+    end
+
+    # Filter by rain
+    @rain_filtered_forecasts = @freetime_filtered_forecasts.select { |forecast| forecast[:rain] == 0.0 }
+    p @rain_filtered_forecasts
+
+  end
+  
   def transform_time
 
     Time.at(seconds_since_epoch_integer).to_datetime
@@ -21,7 +33,7 @@ class Notification
   def ideal_temp
     get
     temp = []
-    @forecast.each do |forecast|
+    @forecasts.each do |forecast|
       temp << forecast[:temp]
     end
     p temp.count # TODO: Outputs 96 hours of data not 
