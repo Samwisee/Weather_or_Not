@@ -13,7 +13,7 @@ class WeatherService
     client = WeatherClient.new
     cities.each do |city|
       # write hourly forecasts to the DB
-      Forecast.create forecasts(client, city)
+      Forecast.upsert_all forecasts(client, city)
     end
   end
 
@@ -32,7 +32,12 @@ class WeatherService
         short_description: forecast[:short_description],
         long_description:  forecast[:long_description],
         location_id:       city[:id],
+        created_at:        Time.now,
+        updated_at:        Time.now
       }
     end
   end 
 end
+
+
+

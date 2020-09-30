@@ -4,12 +4,13 @@ require 'pry-byebug'
 class Notification
 
   FREETIMES_ARRAY = (8...17).to_a
-  STANDARD_TEMP = 25
+  # Filter for rain
+  STANDARD_TEMP = 23
 
   def get
     now = Time.now
-    @forecast = Forecast.all
-    @forecast = @forecast.as_json
+    @forecast = Forecast.where(Time.now - 24)
+     
   end
 
   def transform_time
@@ -28,6 +29,14 @@ class Notification
   end
 
 end
+
+# User should have one location
+
+# User needs a specific time offset
+
+# filter list => which does processing
+
+
 
 
 # # Calculating offset
