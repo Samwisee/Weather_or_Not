@@ -1,6 +1,8 @@
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
-
+  
+  
   def home
     if current_user
       lat = current_user.latitude
@@ -9,5 +11,5 @@ class PagesController < ApplicationController
       @forecast = Forecast.new(data)
     end
   end
-
+  
 end

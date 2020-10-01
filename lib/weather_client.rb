@@ -23,12 +23,12 @@ class WeatherClient
     # Append 48hr data to relevant weather arrays
     forecasts_hash["hourly"].each do |forecast|
       forecasts << {
-        :dt => forecast["dt"],
-        :temp => forecast["temp"],
-        :feels_like => forecast["feels_like"],
-        :wind_speed => forecast["wind_speed"],
-        :rain => forecast["rain"].nil? ? 0 : forecast["rain"]["1h"],
-        :long_description => forecast["weather"][0]["description"],
+        :dt                => forecast["dt"],
+        :temp              => forecast["temp"],
+        :feels_like        => forecast["feels_like"],
+        :wind_speed        => forecast["wind_speed"],
+        :rain              => forecast["rain"].nil? ? 0 : forecast["rain"]["1h"],
+        :long_description  => forecast["weather"][0]["description"],
         :short_description => forecast["weather"][0]["main"], 
       }
     end

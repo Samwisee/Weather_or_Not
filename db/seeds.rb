@@ -11,7 +11,7 @@ Forecast.destroy_all
 Location.destroy_all
 
 locations = [
-  { name: 'Melbourne', lat: 46.47, lon: 18.83 }
+  { name: 'Melbourne', lat: -37.84, lon: 144.94 }
 ]
 Location.create(locations)
 

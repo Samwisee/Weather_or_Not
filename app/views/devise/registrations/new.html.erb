@@ -22,6 +22,10 @@
                       autofocus: true,
                       placeholder: "Cities are best" %>
           <a href="#" onClick=last.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
+        <div>
+          <strong>Searching around: </strong>
+          <input style="color: black" type="search" id="reverse-city" placeholder="What's your favorite city?"></div>
+        </div>
         </div>
       
         <div class="wizard-step col-10 m-auto" id="laststep" >
@@ -42,6 +46,35 @@
     <% end %>
   </div>
 <% end %>
+
+
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script>
+var placesAutocomplete = places({
+    appId: ENV['ALGOLIA_APP_ID'],
+    apiKey: ENV['ALGOLIA_API_KEY'],
+    container: document.getElementById('user_city_name')
+  }).configure({
+    type: 'city',
+    hitsPerPage: 1,
+    aroundLatLngViaIP: true
+  });
+
+placesAutocomplete.search().then(function(suggestions) {
+  if (!suggestions[0]) {
+    return;
+  }
+
+  var name = suggestions[0].name;
+  var country = suggestions[0].country;
+  var formattedCity = locale_names[0] + ', ' + country;
+
+  var infoElt = document.getElementById('user_city_name');
+  infoElt.value = formattedCity;
+});
+</script>
+
+
 
 <script> 
   const second = document.getElementById('secondstep')

@@ -6,13 +6,14 @@ class WeatherService
 # This calls the weather api client and saves the 48 hour data into the database
 
   def update_forecasts
-    # retrieve a list of cities from the DB
+    # TODO: retrieve a list of cities from the DB
     cities = Location.all
 
     # for each city, retrieve 48 hours of forecasts
     client = WeatherClient.new
     cities.each do |city|
       # write hourly forecasts to the DB
+      #TODO doesn't work
       Forecast.upsert_all forecasts(client, city)
     end
   end
