@@ -11,6 +11,7 @@ class NotificationService
   end
 
   def filter_forecasts
+    # Run filters for hourly weather data
     forecast_by_freetime = filter_by_freetimes(@start_time, @end_time)
     forecast_by_rain = filter_by_rain(forecast_by_freetime)
     forecast_by_ideal_temp = filter_by_ideal_temp(forecast_by_rain)
@@ -19,11 +20,11 @@ class NotificationService
   private
 
   def filter_by_freetimes(start_time, end_time)
+    # Set up time period between today's midnight and tomorrow's midnight
     midnight_tomorrow = (DateTime.now.at_midnight + 2.day).to_time.to_i
     midnight_today = (DateTime.now.at_midnight + 1.day).to_time.to_i
-
-    # TODO remove data from today
     @forecasts = Forecast.where('dt <= ? AND dt > ?', midnight_tomorrow, midnight_today)
+
     # Filter by freetime
     @forecasts.select do |forecast|
       # TODO: Add in for array

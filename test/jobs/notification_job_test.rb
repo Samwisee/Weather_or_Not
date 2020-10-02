@@ -1,7 +1,7 @@
 #TODO test sidekiq
 require 'test_helper'
 
-class WeatherApiJobTest < ActiveJob::TestCase
+class NotificationJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end

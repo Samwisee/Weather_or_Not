@@ -6,7 +6,7 @@ class Freetime < ApplicationRecord
   validates :period, uniqueness: {scope: :user}
 
   def hours
-    (start_at.to_i..end_at.to_i).to_a
+    (start_time.to_i..end_time.to_i).to_a
   end
   
 end

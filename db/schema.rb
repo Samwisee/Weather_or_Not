@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_09_30_010449) do
     t.string "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "active"
+    t.boolean "active" 
     t.string "period"
     t.bigint "user_id", null: false
     t.time "start_time"

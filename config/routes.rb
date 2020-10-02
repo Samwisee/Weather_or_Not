@@ -26,8 +26,4 @@ Rails.application.routes.draw do
   authenticate :user, ->(user) { user } do
     mount Sidekiq::Web => '/sidekiq'
   end
-
-  resources :freetimes
-  resources :users
-
 end

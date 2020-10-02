@@ -23,22 +23,22 @@ class User < ApplicationRecord
   end
 
   # after user sign up, the below code will send email to the user
-  after_create :send_welcome_email, :send_forecast_email
+  # TODO after_create :send_welcome_email, :send_forecast_email
 
   private
 
   def async_update
-    WeatherApiJob.perform_later(self)
+    NotificationJob.perform_later(self)
   end
 
   def send_welcome_email
     UserMailer.with(user: self).welcome.deliver_now
   end
 
-  def send_forecast_email
-    data =  Weather.call(latitude, longitude)
-    @forecast = Forecast.new(data)
-    UserMailer.with(user: self).forecast.deliver_later!(wait_until: 1.minutes.from_now)
-  end
+  # def send_forecast_email
+  #   data =  Weather.call(latitude, longitude)
+  #   @forecast = Forecast.new(data)
+  #   UserMailer.with(user: self).forecast.deliver_later!(wait_until: 1.minutes.from_now)
+  # end
 
 end

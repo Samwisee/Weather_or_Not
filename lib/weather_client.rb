@@ -5,10 +5,10 @@ class WeatherClient
 
   def get lat, lon 
     # Set up open weather constants
-    api_key = ENV['OPENWEATHER_KEY'] #TODO remove, add to .env
-    url     = "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{lon}&exclude=minutely&units=metric&appid=#{api_key}".freeze
+    API_KEY = ENV['OPENWEATHER_KEY'].freeze
+    URL     = "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{lon}&exclude=minutely&units=metric&appid=#{API_KEY}".freeze
     # Call Open Weather API
-    forecasts_serialized = open(url).read
+    forecasts_serialized = open(URL).read
     forecasts_hash       = JSON.parse(forecasts_serialized)
     # Call transform data
     transform forecasts_hash

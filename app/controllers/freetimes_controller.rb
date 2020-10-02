@@ -1,11 +1,5 @@
 class FreetimesController < ApplicationController
   before_action :authenticate_user!
-
-  def index
-  end
-
-  def new
-  end
   
   def create
     @freetime = Freetime.find_or_initialize_by(user: current_user, period: params.dig(:freetime, :period))
@@ -20,6 +14,6 @@ class FreetimesController < ApplicationController
   private
 
   def freetime_params
-    params.require(:freetime).permit(:start_at, :end_at, :active, :period)
+    params.require(:freetime).permit(:start_time, :end_time, :active, :period)
   end
 end
