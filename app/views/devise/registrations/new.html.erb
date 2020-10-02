@@ -13,6 +13,7 @@
                       placeholder: "First name is fine..." %>
         <a href="#" onClick=second.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
         </div>
+        
 
         <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto" id="secondstep" >
           <%= f.input :city_name,
@@ -22,10 +23,6 @@
                       autofocus: true,
                       placeholder: "Cities are best" %>
           <a href="#" onClick=last.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
-        <div>
-          <strong>Searching around: </strong>
-          <input style="color: black" type="search" id="reverse-city" placeholder="What's your favorite city?"></div>
-        </div>
         </div>
       
         <div class="wizard-step col-10 m-auto" id="laststep" >
@@ -51,8 +48,8 @@
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script>
 var placesAutocomplete = places({
-    appId: ENV['ALGOLIA_APP_ID'],
-    apiKey: ENV['ALGOLIA_API_KEY'],
+    appId: 'R0TERLT9UD',
+    apiKey: 'af10ffd85e5d0e370c59289403a5a685',
     container: document.getElementById('user_city_name')
   }).configure({
     type: 'city',

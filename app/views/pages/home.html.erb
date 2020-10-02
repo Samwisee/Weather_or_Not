@@ -18,19 +18,19 @@
               <p style="font-size: 80px; position: relative; left: 2px; top: 15px; padding-right: 10px"><%= temp %>°C</p>
               <% if description.include? "rain" %>
                 <div class="icon rainy">
-                <div class="cloud"></div>
-                <div class="rains"></div>
+                  <div class="cloud"></div>
+                  <div class="rains"></div>
                 </div>
               <% elsif description.include? "sky" %>
-              <div class="icon sunny">
-              <div class="sun">
-              <div class="rays"></div>
-              </div>
+                <div class="icon sunny">
+                  <div class="sun">
+                  <div class="rays"></div>
+                </div>
               <% elsif description.include? "clouds" %>
-              <div class="icon cloudy">
-              <div class="cloud"></div>
-              <div class="cloud"></div>
-              </div>
+                <div class="icon cloudy">
+                  <div class="cloud"></div>
+                  <div class="cloud"></div>
+                </div>
               <% end %>
             </div>
             <div class="py-4" style="width: 340px">
@@ -53,8 +53,8 @@
         <% 
           @ideal_forecast = NotificationService.new.filter_forecasts
         %>
-        <p><%= @ideal_forecast.temp %></p>
-        <p><%= Time.at(@ideal_forecast.dt) %></p>
+        <p><%= @ideal_forecast.temp.round %>°C</p>
+        <p><%= Time.at(@ideal_forecast.dt).strftime("%I:%M %p") %></p>
         <p><%= @ideal_forecast.long_description %></p>
         <h1>Weather or Not</h1>
         <p>Make the most of your hour outside</p>
