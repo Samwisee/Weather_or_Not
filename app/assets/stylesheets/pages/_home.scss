@@ -3,7 +3,7 @@
 .form-control::placeholder {
   color: rgb(197, 185, 203);
 }
-.home {
+.home-container {
   width: 100%;
   // background: linear-gradient(5deg, #2441e6, #020a5f);
   background: url("https://res.cloudinary.com/dggbtn7xi/image/upload/v1600990970/clouds_xitv8g.png");
@@ -62,4 +62,8 @@ html.is-animating .transition-fade {
   box-shadow: none!important;
   color: white;
   font-weight: bold;
+}
+
+.nav_button {
+  margin-top: 100px;
 }
