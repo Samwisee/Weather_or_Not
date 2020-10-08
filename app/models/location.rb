@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-  has_one :user
+  geocoded_by :name
 end

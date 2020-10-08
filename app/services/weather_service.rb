@@ -14,7 +14,7 @@ class WeatherService
     cities.each do |city|
       # write hourly forecasts to the DB
       #TODO doesn't work because new ids are assigned on api call so old forecasts do not get 
-      Forecast.upsert_all(forecasts(client, city)) # unique_by: :dt
+      Forecast.insert_all(forecasts(client, city)) # unique_by: :dt
     end
   end
 
