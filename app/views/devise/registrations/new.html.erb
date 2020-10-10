@@ -58,8 +58,8 @@
   const lonField = 'user_location_lon';
 
   var placesAutocomplete = places({
-    appId: 'pl0O8TPFLIRR',
-    apiKey: 'e4352dc209dae8d08337508cbb753e3d',
+  appId: ENV['ALGOLIA_APP_ID'],
+    apiKey: ENV['ALGOLIA_API_KEY'],
     container: document.getElementById(locationField)
   }).configure({
     type: 'city',
