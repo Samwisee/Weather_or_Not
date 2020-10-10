@@ -16,15 +16,19 @@
         
 
         <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto" id="secondstep" >
-          <%= f.input :city_name,
-                      input_html: { class: "signup-form-input" },
-                      label: "Where are you located near?",
-                      required: false,
-                      autofocus: true,
-                      placeholder: "Cities are best" %>
-          <a href="#" onClick=last.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
+          <%= f.simple_fields_for :location do |l| %>
+            <%= l.input :name,
+                        input_html: { class: "signup-form-input" },
+                        label: "Where are you located near?",
+                        required: false,
+                        autofocus: true,
+                        placeholder: "Cities are best" %>
+            <%= l.hidden_field :lat %>
+            <%= l.hidden_field :lon %>
+            <a href="#" onClick=last.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
+          <% end %>
         </div>
-      
+
         <div class="wizard-step col-10 m-auto" id="laststep" >
           <%= f.input :email,
                       input_html: { class: "signup-form-input" },
@@ -47,34 +51,41 @@
 
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
 <script>
-var placesAutocomplete = places({
-    appId: 'R0TERLT9UD',
-    apiKey: 'af10ffd85e5d0e370c59289403a5a685',
-    container: document.getElementById('user_city_name')
+  const second = document.getElementById('secondstep');
+  const last = document.getElementById('laststep');
+  const locationField = 'user_location_name';
+  const latField = 'user_location_lat';
+  const lonField = 'user_location_lon';
+
+  var placesAutocomplete = places({
+    appId: 'pl0O8TPFLIRR',
+    apiKey: 'e4352dc209dae8d08337508cbb753e3d',
+    container: document.getElementById(locationField)
   }).configure({
     type: 'city',
     hitsPerPage: 1,
     aroundLatLngViaIP: true
   });
 
-placesAutocomplete.search().then(function(suggestions) {
-  if (!suggestions[0]) {
-    return;
-  }
+  placesAutocomplete.search().then(function(suggestions) {
+    if (!suggestions[0]) {
+      return;
+    }
 
-  var name = suggestions[0].name;
-  var country = suggestions[0].country;
-  var formattedCity = locale_names[0] + ', ' + country;
+    var suggestion = suggestions[0];
 
-  var infoElt = document.getElementById('user_city_name');
-  infoElt.value = formattedCity;
-});
+    var name = suggestion.name;
+    var country = suggestion.country;
+
+    var formattedCity = name + ', ' + country;
+
+    var loc = document.getElementById(locationField);
+    loc.value = formattedCity;
+
+    var lat = document.getElementById(latField);
+    lat.value = suggestion.latlng.lat;
+
+    var lon = document.getElementById(lonField);
+    lon.value = suggestion.latlng.lng;
+  });
 </script>
-
-
-
-<script> 
-  const second = document.getElementById('secondstep')
-  const last = document.getElementById('laststep')
-</script>
-

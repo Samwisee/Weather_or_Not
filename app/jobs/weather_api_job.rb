@@ -1,11 +1,14 @@
-class NotificationJob < ApplicationJob
+class WeatherApiJob < ApplicationJob
   queue_as :default  
   
+  def perform
+    service = WeatherService.new
 
-  
-  # 1) At midnight? start job
-  # 2) Call weather_service to upsert 48hr forecast
-  # 3) Destroy data that is in the past
-  # 4) 
-
+    # write 48 hours of forecasts to the DB    
+    locations = Location.all
+    locations.each do |location|
+      forecasts = service.forecasts location
+      Forecast.insert_all(forecasts)
+    end
+  end
 end

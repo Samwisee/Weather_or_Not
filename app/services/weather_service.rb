@@ -5,24 +5,13 @@ require 'forecast'
 class WeatherService
 # This calls the weather api client and saves the 48 hour data into the database
 
-  def update_forecasts
-    # TODO: retrieve a list of cities from the DB
-    cities = Location.all
-
-    # for each city, retrieve 48 hours of forecasts
-    client = WeatherClient.new
-    cities.each do |city|
-      # write hourly forecasts to the DB
-      #TODO doesn't work because new ids are assigned on api call so old forecasts do not get 
-      Forecast.insert_all(forecasts(client, city)) # unique_by: :dt
-    end
+  def initialize
+    @client = WeatherClient.new
   end
 
-  private
-
-  def forecasts client, city
+  def forecasts location
     # Create new forecast object 48hr data
-    forecasts = client.get city.lat, city.lon
+    forecasts = @client.get city.lat, city.lon
     forecasts.map do |forecast|
       {
         dt:                forecast[:dt],

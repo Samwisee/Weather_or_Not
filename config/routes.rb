@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   get '/rails/info/routes' => 'routes'
   get 'devise/registrations/after_signup'
 
-  resources :users
+  resources :users do
+    resources :locations
+  end
   resources :freetimes, only: [:new, :create]
   
 
