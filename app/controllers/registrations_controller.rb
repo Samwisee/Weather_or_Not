@@ -9,8 +9,8 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  def build_resource(params)
-    super(resource_params)
+  def build_resource
+    resource_params
   end
 
   private
