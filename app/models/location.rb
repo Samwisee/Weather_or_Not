@@ -1,5 +1,6 @@
 class Location < ApplicationRecord
   geocoded_by :name
 
-  has_many :users
+  belongs_to :users, :foreign_key => "locations_id"
+  has_many :users, inverse_of: :location
 end

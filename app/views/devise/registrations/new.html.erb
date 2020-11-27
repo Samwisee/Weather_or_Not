@@ -1,6 +1,6 @@
 <%= render layout: 'daybackground' do %>
   <div class="container-fluid signup transition-fade">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= simple_form_for(@user, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
     
       <div class="wizard">
@@ -16,7 +16,7 @@
         
 
         <div class="wizard-step col-10 col-sm-8 col-md-6 col-lg-4 m-auto" id="secondstep" >
-          <%= f.simple_fields_for :location do |l| %>
+          <%= f.simple_fields_for :location, Location.new do |l| %>
             <%= l.input :name,
                         input_html: { class: "signup-form-input" },
                         label: "Where are you located near?",
@@ -53,13 +53,13 @@
 <script>
   const second = document.getElementById('secondstep');
   const last = document.getElementById('laststep');
-  const locationField = 'user_location_name';
-  const latField = 'user_location_lat';
-  const lonField = 'user_location_lon';
+  const locationField = 'user_location_attributes_name';
+  const latField = 'user_location_attributes_lat';
+  const lonField = 'user_location_attributes_lon';
 
   var placesAutocomplete = places({
-    appId: ENV['ALGOLIA_APP_ID'],
-    apiKey: ENV['ALGOLIA_API_KEY'],
+    appId: '<%= ENV['ALGOLIA_APP_ID'] %>',
+    apiKey: '<%= ENV['ALGOLIA_API_KEY'] %>',
     container: document.getElementById(locationField)
   }).configure({
     type: 'city',

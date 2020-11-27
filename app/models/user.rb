@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :freetimes, dependent: :destroy
   has_one :location
+  accepts_nested_attributes_for :location
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
