@@ -4,7 +4,7 @@
     <h2 class="my-5 pt-5" style="top: 100px">Select and edit your freetimes for a normal day</h2>
       <div>
         <div class="d-flex justify-content-center my-5">
-          <%=  simple_form_for Freetime.new, remote: true do |f| %>
+          <%=  simple_form_for @freetime, remote: true do |f| %>
             <%= f.check_box :active, :id => "period-option-checkbox-morning-ironically", :class => "visibly-hidden", :onclick => "javascript: document.getElementById(`checkbox_submit_morning`).click();" %>
             <div class="period-option">
               <div class="period-option-content">
@@ -12,8 +12,8 @@
                 <%= f.input :period, input_html: {value: 'All day'} %>
               </div>
               <div class="period-option-toolbar">
-                <%= f.input :start_time, as: :time.hour, default: Time.parse('7:00') %>
-                <%= f.input :end_time, input_html: {value: '11:00'} %>
+                <%= f.input :start_at, as: :time, default: Time.parse('7:00') %>
+                <%= f.input :end_at, input_html: {value: '11:00'} %>
               </div>
             <%= f.button :submit, id: "checkbox_submit_morning", class: "d-none" %>
             </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_10_032642) do
+ActiveRecord::Schema.define(version: 2020_11_27_220604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,8 +61,6 @@ ActiveRecord::Schema.define(version: 2020_10_10_032642) do
     t.boolean "active"
     t.string "period"
     t.bigint "user_id", null: false
-    t.time "start_time"
-    t.time "end_time"
     t.index ["user_id"], name: "index_freetimes_on_user_id"
   end
 
@@ -84,14 +82,14 @@ ActiveRecord::Schema.define(version: 2020_10_10_032642) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.boolean "admin", default: false, null: false
-    t.bigint "locations_id", null: false
+    t.bigint "location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["locations_id"], name: "index_users_on_locations_id"
+    t.index ["location_id"], name: "index_users_on_location_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "forecasts", "locations"
   add_foreign_key "freetimes", "users"
-  add_foreign_key "users", "locations", column: "locations_id"
+  add_foreign_key "users", "locations"
 end

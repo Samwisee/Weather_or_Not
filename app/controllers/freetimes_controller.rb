@@ -1,6 +1,10 @@
 class FreetimesController < ApplicationController
   before_action :authenticate_user!
   
+  def new
+    @freetime = Freetime.new
+  end
+
   def create
     @freetime = Freetime.find_or_initialize_by(user: current_user, period: params.dig(:freetime, :period))
     @freetime.update!(freetime_params)
