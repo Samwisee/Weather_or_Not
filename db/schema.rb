@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2020_11_27_220604) do
     t.boolean "active"
     t.string "period"
     t.bigint "user_id", null: false
+    t.time "start_time"
+    t.time "end_time"
     t.index ["user_id"], name: "index_freetimes_on_user_id"
   end
 
@@ -82,9 +84,11 @@ ActiveRecord::Schema.define(version: 2020_11_27_220604) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.boolean "admin", default: false, null: false
+    t.bigint "locations_id", null: false
     t.bigint "location_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["location_id"], name: "index_users_on_location_id"
+    t.index ["locations_id"], name: "index_users_on_locations_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -92,4 +96,5 @@ ActiveRecord::Schema.define(version: 2020_11_27_220604) do
   add_foreign_key "forecasts", "locations"
   add_foreign_key "freetimes", "users"
   add_foreign_key "users", "locations"
+  add_foreign_key "users", "locations", column: "locations_id"
 end

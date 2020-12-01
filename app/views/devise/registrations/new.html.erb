@@ -10,8 +10,8 @@
                       label: "What's your name?",             
                       required: false,
                       autofocus: true,
-                      placeholder: "First name is fine..." %>
-        <a href="#" onClick=second.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
+                      placeholder: "First name please" %>
+        <a href="#secondstep" onClick=second.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
         </div>
         
 
@@ -25,7 +25,7 @@
                         placeholder: "Cities are best" %>
             <%= l.hidden_field :lat %>
             <%= l.hidden_field :lon %>
-            <a href="#" onClick=last.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
+            <a href="#laststep" onClick=last.scrollIntoView() class="signup-next" data-turbolinks="false">Next</a>
           <% end %>
         </div>
 

@@ -1,7 +1,7 @@
 <div class="freetimes container-fluid" style="min-height: 100vh">
   <div class="row align-items-center" style="min-height: 100vh">
     <div class="col text-center">
-    <h2 class="my-5 pt-5" style="top: 100px">Select and edit your freetimes for a normal day</h2>
+    <h2 class="my-5 pt-5" style="top: 100px">Select times during your day when you can take breaks</h2>
       <div>
         <div class="d-flex justify-content-center my-5">
           <%=  simple_form_for @freetime, remote: true do |f| %>
@@ -13,7 +13,7 @@
               </div>
               <div class="period-option-toolbar">
                 <%= f.input :start_at, as: :time, default: Time.parse('7:00') %>
-                <%= f.input :end_at, input_html: {value: '11:00'} %>
+                <%= f.input :end_at,  as: :time, default: Time.parse('11:00')%>
               </div>
             <%= f.button :submit, id: "checkbox_submit_morning", class: "d-none" %>
             </div>

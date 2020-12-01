@@ -142,7 +142,6 @@ input:checked + .period-option {
   }
 
   .period-option-toolbar {
-    display: flex;
 
     .form-group {
       margin-bottom: 0;
@@ -162,7 +161,7 @@ input:checked + .period-option {
 
       input {
         // TODO overflow: hidden;
-        text-align: right;
+
       }
     }
   } 
@@ -183,7 +182,6 @@ input:checked + .period-option {
     grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
     grid-gap: 10px;
   }
-
 
 }
 
